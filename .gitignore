@@ -3,6 +3,6 @@
 # =============== #
 SeaBattle/Library/
 SeaBattle/Temp/
-SeaBattle/Obj/
-SeaBattle/UnityGenerated/
+#SeaBattle/Obj/
+#SeaBattle/UnityGenerated/
 
