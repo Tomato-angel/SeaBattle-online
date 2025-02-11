@@ -27,4 +27,4 @@
 
 1. **Клонируйте репозиторий**:
    ```bash
-   git clone https://github.com/ваш-username/морской-бой.git
+   git clone [https://github.com/Tomato-angel/SeaBattle-online.git](https://github.com/Tomato-angel/SeaBattle-online.git)
