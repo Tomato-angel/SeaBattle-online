@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{213FDC92-ABB3-B376-9B09-7E2AC8D29320}</ProjectGuid>
+    <ProjectGuid>{7B523C1E-8183-1791-7768-C4589BCCD3E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror.Editor</AssemblyName>
@@ -1174,15 +1174,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{7D25B811-FB91-5808-5652-5CAC486AD277}</Project>
+      <Project>{10077977-2C31-9753-0F33-5FBC31C4F0EA}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
     <ProjectReference Include="Mirror.Components.csproj">
-      <Project>{956232DB-35AC-F466-6292-27BA62C13EB7}</Project>
+      <Project>{0712AFA9-0A55-F5CF-12B9-F0269043818C}</Project>
       <Name>Mirror.Components</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Mirror.CodeGen.csproj">
-      <Project>{568BFF82-EBD5-93A9-E4A0-C1BF4B9138C0}</Project>
+      <Project>{22DCA7C0-6B04-A4E0-5D85-B7A9687527B6}</Project>
       <Name>Unity.Mirror.CodeGen</Name>
     </ProjectReference>
   </ItemGroup>

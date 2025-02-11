@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4B243CBD-FACC-E1A9-D483-D0407B34B9F5}</ProjectGuid>
+    <ProjectGuid>{6C805D90-CA43-CAB3-DD28-929223037BAA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror.Authenticators</AssemblyName>
@@ -1136,7 +1136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.csproj">
-      <Project>{7D25B811-FB91-5808-5652-5CAC486AD277}</Project>
+      <Project>{10077977-2C31-9753-0F33-5FBC31C4F0EA}</Project>
       <Name>Mirror</Name>
     </ProjectReference>
   </ItemGroup>

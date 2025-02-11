@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7D25B811-FB91-5808-5652-5CAC486AD277}</ProjectGuid>
+    <ProjectGuid>{10077977-2C31-9753-0F33-5FBC31C4F0EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Mirror</AssemblyName>
@@ -1205,7 +1205,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Mirror.CompilerSymbols.csproj">
-      <Project>{E4FFBDB4-9BAC-FAD8-15CF-AC0D288131A9}</Project>
+      <Project>{A62DDCBB-57A1-81C6-0D9F-43FC3095D828}</Project>
       <Name>Mirror.CompilerSymbols</Name>
     </ProjectReference>
   </ItemGroup>
