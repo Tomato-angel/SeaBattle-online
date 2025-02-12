@@ -1,14 +1,16 @@
 using Mirror;
-using System;
-using System.Text.RegularExpressions;
-using Unity.VisualScripting;
 using UnityEngine;
+
+using Matchmaking;
+using Match = Matchmaking.Match;
 
 [RequireComponent(typeof(NetworkMatch))]
 [RequireComponent(typeof(NetworkIdentity))]
 
 public class Player : NetworkBehaviour
 {
+    // Добавить Player State для отслеживания состояния игрока в целом
+
     [SerializeField] string _nickName;
 
     #region [Объявление Mirror - компонентов]

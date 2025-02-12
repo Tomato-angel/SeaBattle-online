@@ -68,6 +68,7 @@
     <Compile Include="Assets\_Main\Scripts\Chat\Chat.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\KeyGenerator.cs" />
     <Compile Include="Assets\_Main\Scripts\Callback\CallbackManager.cs" />
+    <Compile Include="Assets\_Main\Scripts\LogMaster\LogMaster.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\_Main\Scripts\Empty.cs" />
     <Compile Include="Assets\_Main\Scripts\Callback\Callback.cs" />

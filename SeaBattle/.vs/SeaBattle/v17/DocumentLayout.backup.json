@@ -1,0 +1,92 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|e:\\unity\\unityproject\\seabattle-online\\seabattle\\assets\\_main\\scripts\\logmaster\\logmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_main\\scripts\\logmaster\\logmaster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_main\\scripts\\debug\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_main\\scripts\\debug\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|e:\\unity\\unityproject\\seabattle-online\\seabattle\\assets\\_main\\scripts\\debug\\matchmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_main\\scripts\\debug\\matchmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|e:\\unity\\unityproject\\seabattle-online\\seabattle\\assets\\_main\\scripts\\debug\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_main\\scripts\\debug\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Player.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\Player.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Player.cs",
+              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T05:58:24.731Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LogMaster.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\LogMaster\\LogMaster.cs",
+              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\LogMaster\\LogMaster.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\LogMaster\\LogMaster.cs",
+              "RelativeToolTip": "Assets\\_Main\\Scripts\\LogMaster\\LogMaster.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwA0AAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T05:49:03.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Match.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Match.cs",
+              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\Match.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Match.cs",
+              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\Match.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T01:23:27.406Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatchMaker.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\MatchMaker.cs",
+              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\MatchMaker.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\MatchMaker.cs",
+              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\MatchMaker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T01:18:25.719Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
