@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace Matchmaking
+namespace Scripts.Matchmaking
 {
+    [Serializable]
     public class Match
     {
 
@@ -19,7 +20,7 @@ namespace Matchmaking
         public int PlayersCount { get => _players.Count; }
 
         
-        public bool GetPlayer(int index, out Player player, Action<Callback> callback = null)
+        public bool GetPlayer(int index, out Player player)
         {
             player = null;
             if (index < _players.Count)
@@ -29,7 +30,7 @@ namespace Matchmaking
             }
             return false;
         }
-        public bool AddPlayer(Player player, Action<Callback> callback = null)
+        public bool AddPlayer(Player player)
         {
             if (!_players.Contains(player))
             {
@@ -39,7 +40,7 @@ namespace Matchmaking
             }
             return false;
         }
-        public bool DeletePlayer(Player player, Action<Callback> callback = null)
+        public bool DeletePlayer(Player player)
         {
             if (_players.Remove(player))
             {
@@ -48,7 +49,7 @@ namespace Matchmaking
             return false;
 
         }
-        public bool ContainsPlayer(Player player, Action<Callback> callback = null)
+        public bool ContainsPlayer(Player player)
         {
             if (_players.Contains(player))
             {
@@ -67,6 +68,7 @@ namespace Matchmaking
         public event Action EndMatch;
         public void OnEndMatch() => EndMatch?.Invoke();
 
+
         public override string ToString()
         {
             string result = string.Empty;
@@ -79,6 +81,7 @@ namespace Matchmaking
 
             return result;
         }
+
 
         public static Match Empty { get => new Match(); }
 

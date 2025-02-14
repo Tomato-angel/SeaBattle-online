@@ -325,8 +325,8 @@ MonoBehaviour:
     y: 0
     width: 418
     height: 941
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 76}
+  m_MaxSize: {x: 4001, y: 4026}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -935,7 +935,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.09754521, y: 0.04685501, z: -0.0045972476, w: -0.9941169}
   m_Size:
-    m_Target: 6.5407677
+    m_Target: 6.2464333
     speed: 2
     m_Value: 6.5407677
   m_Ortho:
@@ -1007,8 +1007,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: feb70000
-      m_LastClickedID: 47102
+      m_SelectedIDs: 
+      m_LastClickedID: 0
       m_ExpandedIDs: f6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1870,7 +1870,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 58bb0000
     m_LastClickedID: 47960
-    m_ExpandedIDs: 00000000c6b90000
+    m_ExpandedIDs: 00000000d6b90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1899,7 +1899,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000c6b90000
+    m_ExpandedIDs: ffffffff00000000d6b90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2070,9 +2070,9 @@ MonoBehaviour:
     m_IsLocked: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9cba0000
-    m_LastClickedID: 47772
-    m_ExpandedIDs: 00000000c6b9000032ba000044ba000000ca9a3b
+    m_SelectedIDs: acba0000
+    m_LastClickedID: 47788
+    m_ExpandedIDs: 00000000d6b9000042ba000054ba000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2101,7 +2101,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c6b90000
+    m_ExpandedIDs: 00000000d6b90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2127,8 +2127,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: feb70000
-    m_LastClickedInstanceID: 47102
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002abb0000
     m_RenameOverlay:

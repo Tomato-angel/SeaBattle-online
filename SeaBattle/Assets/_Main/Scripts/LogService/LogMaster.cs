@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Extensions.LogMaster
+namespace Scripts.LogService
 {
     public class LogMaster
     {

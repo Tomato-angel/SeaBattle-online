@@ -1,0 +1,10 @@
+using UnityEngine;
+
+namespace Scripts.NotifyService
+{
+    public class NotifyManager
+    {
+
+    }
+
+}

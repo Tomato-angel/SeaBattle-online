@@ -2,11 +2,15 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using System.Threading.Tasks;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 
-namespace Matchmaking
+namespace Scripts.Matchmaking
 {
     public class MatchMaker
     {
+        
         #region [Реализация синглтона]
         private static MatchMaker _instance;
         public static MatchMaker Instance
@@ -34,30 +38,56 @@ namespace Matchmaking
         private Dictionary<string, Match> _matches;
         public Dictionary<string, Match> Matches { get => _matches; }
 
-        // Дополнить везде Callback.Invoke() нужно будет тут написать возможность заранее брать из класса коды коллбеков
-
-        private bool CreateMatch(out string key, out Match match, bool isOpen = false, Action<Callback> callback = null)
+        private async Task CreateMatchAsync(Action<bool, string, Match> callback, bool isOpen = false)
         {
-            key = string.Empty;
-            match = Match.Empty;
+            await Task.Run(async () =>
+            {
+                Debug.Log($"\t-- Starts create the match");
+                if (_matches.Count < _matchesLimitCount)
+                {
+                    string key = string.Empty;
+                    Match match = Match.Empty;
+                    await KeyGenerator.Instance.GenerateUniqueKeyAsync((uniqueKey) =>
+                    {
+                        key = uniqueKey;
+                    });
+                    if (key != string.Empty)
+                    {
+                        match = new Match(key, isOpen);
+                        _matches.Add(key, match);
+                        
+                        Debug.Log($"\t-- Created match with key: {key}");
+                        callback?.Invoke(true, key, match);
+
+                        return;
+                    }
+                }
+                Debug.Log($"\t-- Can't create the match");
+                callback?.Invoke(false, string.Empty, null);
+            });
+        }
+
+        private bool CreateMatch(out (string, Match) pairKeyMatch, bool isOpen = false)
+        {
+            Debug.Log($"\t-- Starts create the match");
             if (_matches.Count < _matchesLimitCount)
             {
-                string tmpKey = string.Empty;
-                if (KeyGenerator.Instance.TryGenerateKey(out tmpKey))
+                string key = string.Empty;
+                if (KeyGenerator.Instance.TryGenerateKey(out key))
                 {
-                    key = tmpKey;
-                    Match tmpMatch = new Match(tmpKey, isOpen);
-                    match = tmpMatch;
-                    _matches.Add(tmpKey, tmpMatch);
-                    Debug.Log($"-- Created game with key: {tmpKey}");
+                    Match match = new Match(key, isOpen);
+                    _matches.Add(key, match);
+                    Debug.Log($"\t-- Created match with key: {key}");
+                    pairKeyMatch = (key, match);
                     return true;
                 }
-                return false;
             }
+            Debug.Log($"\t-- Can't create the match");
+            pairKeyMatch = (null, null);
             return false;
         }
 
-        private bool DeleteMatch(string key, Action<Callback> callback = null)
+        private bool DeleteMatch(string key)
         {
             DisconnectAllPlayersFromMatch(key);
             if (_matches.ContainsKey(key))
@@ -69,21 +99,23 @@ namespace Matchmaking
             return false;
         }
 
-
-        private void RemoveEmptyMatches()
+        private int RemoveEmptyMatches()
         {
+            int emptyMatchesCount = 0;
             foreach ((string key, Match match) in _matches)
             {
                 if (match.PlayersCount == 0)
                 {
+                    ++emptyMatchesCount;
                     DeleteMatch(key);
                 }
             }
+            return emptyMatchesCount;
         }
 
-        private bool ConnectPlayerToMatch(string key, Player player, Action<Callback> callback = null)
+        private bool ConnectPlayerToMatch(string key, Player player)
         {
-            Debug.Log($"-- Starts connect to game with key: {key} the Player: {player.connectionToClient.connectionId}");
+            Debug.Log($"\t-- Starts connect to match with key: {key} the Player: {player.connectionToClient.connectionId}");
             if (_matches.ContainsKey(key))
             {
                 if (_matches[key].PlayersCount < _maxMatchPlayers)
@@ -98,18 +130,19 @@ namespace Matchmaking
                     player.CurrentMatch = _matches[key];
                     player.NetworkMatch.matchId = _matches[key].ID;
 
+                    Debug.Log($"\t-- Connect to match with key: {key} the Player: {player.connectionToClient.connectionId}");
                     return true;
                 }
-                return false;
             }
+            Debug.Log($"\t-- Can't connect to match with key: {key}");
             return false;
         }
 
         // При подключении и отключении игрока к матчу должно меняться некоторое PlayerState - состояние игрока
         // по которому отслеживается переход по гл.меню и прочее
-        private bool DisconnectPlayerFromMatch(string key, Player player, Action<Callback> callback = null)
+        private bool DisconnectPlayerFromMatch(string key, Player player)
         {
-            Debug.Log($"-- Starts disconnect the Player: {player.connectionToClient.connectionId} from match with key: {key}");
+            Debug.Log($"\t-- Starts disconnect the Player: {player.connectionToClient.connectionId} from match with key: {key}");
             if (_matches.ContainsKey(key))
             {
                 if (_matches[key].DeletePlayer(player))
@@ -124,106 +157,217 @@ namespace Matchmaking
                     player.CurrentMatch = null;
                     player.NetworkMatch.matchId = Guid.Empty;
 
+                    Debug.Log($"\t-- Player: {player.connectionToClient.connectionId} was disconnected from match with key: {key}");
                     return true;
                 }
-                return false;
             }
+            Debug.Log($"\t-- Player: {player.connectionToClient.connectionId} can't disconnected from match with key: {key}");
             return false;
         }
-
-        private bool DisconnectAllPlayersFromMatch(string key, Action<Callback> callback = null)
+        private bool DisconnectAllPlayersFromMatch(string key)
         {
-            Debug.Log($"-- Starts disconnect All Players from match with key: {key}");
+            Debug.Log($"\t-- Starts disconnect All Players from match with key: {key}");
             for(int i = 0; i < _matches[key].PlayersCount; ++i)
             {
-                Player tmpPlayer;
-                _matches[key].GetPlayer(i, out tmpPlayer);
+                _matches[key].GetPlayer(i, out Player tmpPlayer);
                 DisconnectPlayerFromMatch(key, tmpPlayer);
             }
             if(_matches[key].PlayersCount == 0)
+            {
+                Debug.Log($"\t-- All Players was disconected from match with key: {key}");
                 return true;
+            }
+            Debug.Log($"\t-- Can't disconnected All Players from match with key: {key}");
             return false;
         }
 
-        private bool ForceDisconnectPlayerFromMatch(Player player, Action<Callback> callback = null)
+        private bool ForceDisconnectPlayerFromMatch(Player player)
         {
             player.CurrentMatch = null;
             player.NetworkMatch.matchId = Guid.Empty;
 
             return true;
         }
-
-
-        // Реализовать некоторый PlayerNotifier который будет передавать на клиент данные об ошибке с сервера о его операции
-        public bool HostGame(Player player, Action<Callback> callback = null)
+        private bool ForceDisconnectAllPlayersFromMatch(string key)
         {
-            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host game");
+            Debug.Log($"\t-- Starts FORCE disconnect All Players from match with key: {key}");
+            for (int i = 0; i < _matches[key].PlayersCount; ++i)
+            {
+                _matches[key].GetPlayer(i, out Player tmpPlayer);
+                ForceDisconnectPlayerFromMatch(tmpPlayer);
+            }
+            return true;
+        }
 
-            string key;
+
+        public async void HostMatchAsync(Player player, Action<bool> callback = null)
+        {
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host match");
+
+            bool isSuccessfullyCreated = false;
+            string key = string.Empty;
             Match match;
-            if (CreateMatch(out key, out match))
+            await CreateMatchAsync((tmpIsSuccessfullyCreated, tmpKey, tmpMatch) => {
+                isSuccessfullyCreated = tmpIsSuccessfullyCreated;
+                key = tmpKey;
+                match = tmpMatch;
+            });
+            if (isSuccessfullyCreated)
             {
-                if (ConnectPlayerToMatch(key, player, callback))
+                bool isSuccessfullyConnected =
+                await Task.Run(() => ConnectPlayerToMatch(key, player));
+                if (isSuccessfullyConnected)
                 {
-                    return true;
+                    callback?.Invoke(isSuccessfullyConnected);
+                    return;
                 }
-                return false;
             }
-            return false;
+            Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, can't host match");
+            callback?.Invoke(false);
         }
 
-        public bool JoinGame(Player player, string key, Action<Callback> callback = null)
+        // Устаревшее : синхронный хостинг матча
+        public void HostMatch(Player player, Action<bool> callback = null)
         {
-            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts join game");
-            if (ConnectPlayerToMatch(key, player, callback))
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host match");
+
+            if (CreateMatch(out (string, Match) pairKeyMatch, true))
             {
-                return true;
+                string key = pairKeyMatch.Item1;
+                callback?.Invoke(ConnectPlayerToMatch(key, player));
+                return;
             }
-            return false;
+            Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, can't host match");
+            callback?.Invoke(false);
         }
 
-        public bool SearchGame(Player player, Action<Callback> callback = null)
+        public async void JoinMatchAsync(Player player, string key, Action<bool> callback = null)
         {
-            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts search game");
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts join match with key: {key}");
+            await Task.Run(() => {
+                // Можно упростить до: 
+                // callback?.Invoke(ConnectPlayerToMatch(key, player));
+                bool isSuccessfullyConnected = ConnectPlayerToMatch(key, player);
+                callback?.Invoke(isSuccessfullyConnected);
+            });
+        }
 
-            Debug.Log($"-- Try connect to opens matches");
-            foreach ((string tmpKey, Match tmpMatch) in _matches)
+        // Устаревшее : синхронное подключение к матчу
+        public void JoinMatch(Player player, string key, Action<bool> callback = null)
+        {
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts join match with key: {key}");
+            bool isSuccessfullyConnected = ConnectPlayerToMatch(key, player);
+            callback?.Invoke(isSuccessfullyConnected);
+        }
+
+
+        public async void SearchMatchAsync(Player player, Action<bool> callback = null)
+        {
             {
-                if (tmpMatch.IsOpen)
+                Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts search game");
+                Debug.Log($"\t-- Try connect to opens matches");
+                foreach ((string key, Match match) in _matches)
                 {
-                    if (tmpMatch.PlayersCount < _maxMatchPlayers)
+                    if (match.IsOpen && match.PlayersCount < _maxMatchPlayers)
                     {
-                        if (ConnectPlayerToMatch(tmpKey, player, callback))
+                        bool isSuccessfullyConnected =
+                        await Task.Run(() => ConnectPlayerToMatch(key, player));
+                        if (isSuccessfullyConnected)
                         {
-                            return true;
+                            Debug.Log($"\t-- Player connected to match: {key}");
+                            callback?.Invoke(isSuccessfullyConnected);
+                            return;
                         }
-                        return false;
                     }
                 }
             }
-
-            Debug.Log($"-- Try create the open matches");
-            string key;
-            Match match;
-            if (CreateMatch(out key, out match))
             {
-                if (ConnectPlayerToMatch(key, player, callback))
+                Debug.Log($"\t-- Try create the open match");
+
+                bool isSuccessfullyCreated = false;
+                string key = string.Empty;
+                Match match;
+                await CreateMatchAsync((tmpIsSuccessfullyCreated, tmpKey, tmpMatch) =>
                 {
-                    return true;
+                    isSuccessfullyCreated = tmpIsSuccessfullyCreated;
+                    key = tmpKey;
+                    match = tmpMatch;
+                });
+                if (isSuccessfullyCreated)
+                {
+                    bool isSuccessfullyConnected =
+                    await Task.Run(() => ConnectPlayerToMatch(key, player));
+                    if (isSuccessfullyConnected)
+                    {
+                        Debug.Log($"\t-- Player connected to newly created match: {key}");
+                        callback?.Invoke(isSuccessfullyConnected);
+                        return;
+                    }
                 }
-                return false;
+                Debug.Log($"\t-- Can't search match");
+                callback?.Invoke(false);
             }
-            return false;
+        }
+        
+        // Устаревшее : синхронный поиск матча
+        public void SearchMatch(Player player, Action<bool> callback = null)
+        {
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts search game");
+            Debug.Log($"\t-- Try connect to opens matches");
+            foreach ((string key, Match match) in _matches)
+            {
+                if (match.IsOpen && match.PlayersCount < _maxMatchPlayers)
+                {
+                    bool isSuccessfullyConnected = ConnectPlayerToMatch(key, player);
+                    if (isSuccessfullyConnected)
+                    {
+                        Debug.Log($"\t-- Player connected to match: {key}");
+                        callback?.Invoke(isSuccessfullyConnected);
+                        return;
+                    }
+                }
+            }
+            Debug.Log($"\t-- Try create the open match");
+            if (CreateMatch(out (string, Match) pairKeyMatch, true))
+            {
+                string key = pairKeyMatch.Item1;
+                bool isSuccessfullyConnected = ConnectPlayerToMatch(key, player);
+                if (isSuccessfullyConnected)
+                {
+                    Debug.Log($"\t-- Player connected to newly created match: {key}");
+                    callback?.Invoke(isSuccessfullyConnected);
+                    return;
+                }
+            }
+            Debug.Log($"\t-- Can't search match");
+            callback?.Invoke(false);
         }
 
-        public bool LeaveGame(Player player, string key, Action<Callback> callback = null)
+
+        public async void LeaveMatchAsync(Player player, string key, Action<bool> callback = null)
         {
-            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, leave the game from match key: {key}");
-            if (DisconnectPlayerFromMatch(key, player, callback))
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts leave the game from match key: {key}");
+            await Task.Run(() =>
             {
-                return true;
+                Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, left the game from match key: {key}");
+                callback?.Invoke(DisconnectPlayerFromMatch(key, player));
+                return;
+            });
+            Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, Can't left the game from match key: {key}");
+        }
+
+        // Устаревшее : синхронный выход из матча
+        public void LeaveMatch(Player player, string key, Action<bool> callback = null)
+        {
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts leave the game from match key: {key}");
+            if (DisconnectPlayerFromMatch(key, player))
+            {
+                Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, left the game from match key: {key}");
+                callback?.Invoke(true);
+                return;
             }
-            return false;
+            callback?.Invoke(false);
+            Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, Can't left the game from match key: {key}");
         }
 
         #endregion
@@ -236,5 +380,6 @@ namespace Matchmaking
         }
 
     }
+
 }
 

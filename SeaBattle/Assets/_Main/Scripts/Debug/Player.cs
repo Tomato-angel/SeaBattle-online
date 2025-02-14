@@ -1,8 +1,10 @@
 using Mirror;
 using UnityEngine;
 
-using Matchmaking;
-using Match = Matchmaking.Match;
+using Scripts.Matchmaking;
+using System.Threading.Tasks;
+
+
 
 [RequireComponent(typeof(NetworkMatch))]
 [RequireComponent(typeof(NetworkIdentity))]
@@ -21,6 +23,7 @@ public class Player : NetworkBehaviour
     public NetworkIdentity NetworkIdentity { get => _networkIdentity; }
     #endregion
 
+    [SyncVar]
     private Match _currentMatch;
     public Match CurrentMatch { get => _currentMatch; set => _currentMatch = value; }
 
@@ -31,26 +34,26 @@ public class Player : NetworkBehaviour
         _networkIdentity = GetComponent<NetworkIdentity>();
     }
 
-    public void Start() 
+    public async void Start() 
     {
         // CLIENT
-        if(isClient)
+        if (isClient)
         {
-            CmdSearchGame();
-            CmdLeaveGame();
-            CmdHostGame();
-            CmdLeaveGame();
-            CmdJoinGame("XXXXxxxx");
+            CmdSearchMatch();
+            //CmdLeaveMatch();
+            //CmdHostMatch();
+            //CmdLeaveMatch();
+            //CmdJoinMatch("Xxxxxxxx");
         }
 
         // SERVER
-        if(isServer)
+        if (isServer)
         {
 
         }
     }
 
-    public void Update()
+    public async void Update()
     {
         // CLIENT
         if (isClient)
@@ -81,31 +84,39 @@ public class Player : NetworkBehaviour
     #region ["Player" на стороне сервера]
 
     [Command]
-    public void CmdSearchGame()
+    public void CmdSearchMatch()
     {
-        MatchMaker.Instance.SearchGame(this);
-        TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        MatchMaker.Instance.SearchMatch(this, (isSuccessfullySearch) => {
+            TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        });
+        
     }
 
     [Command]
-    public void CmdHostGame()
+    public void CmdHostMatch()
     {
-        MatchMaker.Instance.HostGame(this);
-        TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        MatchMaker.Instance.HostMatchAsync(this, (isSuccessfullySearch) => {
+            TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        });
+
     }
 
     [Command]
-    public void CmdJoinGame(string key)
+    public void CmdJoinMatch(string key)
     {
-        MatchMaker.Instance.JoinGame(this, key);
-        TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        MatchMaker.Instance.JoinMatch(this, key, (isSuccessfullySearch) => {
+            TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        });
+
     }
 
     [Command]
-    public void CmdLeaveGame()
+    public void CmdLeaveMatch()
     {
-        MatchMaker.Instance.LeaveGame(this, _currentMatch.Key);
-        TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        MatchMaker.Instance.LeaveMatch(this, _currentMatch.Key, (isSuccessfullySearch) => {
+            TargetViewMatchInfo(connectionToClient, _currentMatch?.ToString());
+        });
+
     }
 
     #endregion

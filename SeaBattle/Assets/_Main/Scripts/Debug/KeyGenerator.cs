@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-using System.Linq;
-using UnityEditorInternal;
+using System.Threading;
 
 
 /// <summary>
-/// Класс, гарантирующий создание уникальных ключей и проверки их валидности
+/// Класс, гарантирующий создание уникальных ключей
 /// </summary>
 public class KeyGenerator
 {
     private int _keyLength;
+    private int _keyUniquenessLimit;
 
     private HashSet<string> _keys;
     public HashSet<string> Keys { get => _keys; }
@@ -23,7 +23,6 @@ public class KeyGenerator
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
     };
 
-    private int _keyUniquenessLimit;
 
     private static KeyGenerator _instance;
     public static KeyGenerator Instance
@@ -35,64 +34,64 @@ public class KeyGenerator
         }
     }
 
-
-    //Переделать на асинхронность, генерация ключа и попытка сделать его валидным и т.п. просто уничтожит производительность сервера
-
+    /// <summary>
+    /// Создаёт произвольный ключ
+    /// </summary>
+    /// <returns> 
+    /// Возвращает строку - некоторый ключ
+    /// </returns>
     private string GenerateKey()
     {
         string uniqueKey = string.Empty;
         for (int i = 0; i < _keyLength; ++i)
         {
-            uniqueKey += _pwdChars[UnityEngine.Random.Range(0, 62)];
+            Random rnd = new Random();
+            uniqueKey += _pwdChars[rnd.Next(0, 62)];
         }
         return uniqueKey;
     }
 
 
-    public bool TryGenerateKey1(out string key)
+    /// <summary>
+    /// Асинхронно генерирует уникальный ключ и запоминает его для дальнейшей верификации
+    /// </summary>
+    public async Task GenerateUniqueKeyAsync(Action<string> callback = null)
     {
-        //Task<string> generateKey = new Task<string>(() => { return GenerateKey(); });
-
-        Task<(string, bool)> tryGenerateUniqueKey = new Task<(string, bool)>(() => 
+        await Task.Run(() =>
         {
-            for(int i = 0; i < _keyUniquenessLimit; ++i)
+            for (int i = 0; i < 100; ++i)
             {
                 string generatedKey = GenerateKey();
-                if (_keys.Contains(generatedKey))
-                    continue;
-                else
-                    return (generatedKey, true); 
+                if (!_keys.Contains(generatedKey))
+                {
+                    _keys.Add(generatedKey);
+                    callback?.Invoke(generatedKey);
+                    return;
+                }
             }
-            return (string.Empty, false);
+            callback?.Invoke(string.Empty);
         });
-
-        tryGenerateUniqueKey.Start();
-        tryGenerateUniqueKey.Wait();
-
-        (string tmpKey, bool isSuccesfulyGenerated) = tryGenerateUniqueKey.Result;
-
-        if (isSuccesfulyGenerated)
-        {
-            Keys.Add(tmpKey);
-            key = tmpKey;
-            return true;
-        }
-        else
-        {
-            key = string.Empty;
-            return false;
-        }
     }
 
-    // Ещё раз пересмотреть код, возможно придётся его немного изменить для лучшей работы на большом количестве ключей
-    // Проработать момент выброса ошибки
+
+
+    // Устаревшее : генерация ключа
+    /// <summary>
+    /// [ УСТАРЕВШЕЕ ] Пытается сгенерировать ключ
+    /// </summary>
+    /// <param name="key">
+    /// Возвращаемый параметр - уникальный ключ
+    /// </param>
+    /// <returns>
+    /// Возваращет логическое значение - прошла ли попытка генерации ключа успешно
+    /// </returns>
     public bool TryGenerateKey(out string key)
     {
         try
         {
-            var newKey = GenerateKey();
+            string newKey = GenerateKey();
             key = newKey;
-            Keys.Add(newKey);
+            _keys.Add(newKey);
             return true;
         }
         catch (Exception e)
@@ -101,18 +100,11 @@ public class KeyGenerator
         }
     }
 
-    
     public bool RemoveKey(string key)
     {
         return _keys.Remove(key);
     }
     
-    /* УСТАРЕЛО - проверка валидности ключа
-    static public bool CheckValidity(string key)
-    {
-        string tmp;
-        return _keys.TryGetValue(key, out tmp);
-    } */
 
     public Guid KeyToGui(string key)
     {
@@ -128,12 +120,6 @@ public class KeyGenerator
         _keyLength = keyLength;
         _keys = new HashSet<string>();
 
-        _pwdChars = new char[62] {
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'O', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
-
         _keyUniquenessLimit = (int) MathF.Pow(_pwdChars.Length, keyLength);
-
     }
 }
