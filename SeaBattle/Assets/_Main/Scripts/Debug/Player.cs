@@ -3,6 +3,7 @@ using UnityEngine;
 
 using Scripts.Matchmaking;
 using System.Threading.Tasks;
+using Scripts.LogService;
 
 
 
@@ -39,7 +40,8 @@ public class Player : NetworkBehaviour
         // CLIENT
         if (isClient)
         {
-            CmdSearchMatch();
+            //LogMaster.Instance.Test();
+            //CmdSearchMatch();
             //CmdLeaveMatch();
             //CmdHostMatch();
             //CmdLeaveMatch();

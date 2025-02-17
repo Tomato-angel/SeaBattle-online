@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Empty
+public class NotifyService
 {
     
 }

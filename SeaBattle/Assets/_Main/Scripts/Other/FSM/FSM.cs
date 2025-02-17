@@ -7,14 +7,16 @@ namespace Scripts.FSM
     {
         private FSMState CurrentState { get; set; }
         private Dictionary<Type, FSMState> _states = new Dictionary<Type, FSMState>();
-
+        
+        // Устаревшее
+        /*
         public void AddState(FSMState state)
         {
             _states.Add(state.GetType(), state);
-        }
-        public void AddStates(params FSMState[] states)
+        }*/
+        public void AddState(params FSMState[] states)
         {
-            foreach (var state in states) AddState(state);
+            foreach (var state in states) _states.Add(state.GetType(), state); ;
         }
 
         public void SetState<T>() where T : FSMState

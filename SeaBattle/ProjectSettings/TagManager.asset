@@ -6,6 +6,10 @@ TagManager:
   tags:
   - NetworkManager
   - DebugField
+  - Scene
+  - UI
+  - Services
+  - Service
   layers:
   - Default
   - TransparentFX

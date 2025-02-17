@@ -55,6 +55,9 @@ public class KeyGenerator
     /// <summary>
     /// Асинхронно генерирует уникальный ключ и запоминает его для дальнейшей верификации
     /// </summary>
+    /// /// <returns> 
+    /// Возвращает строку - некоторый уникальный ключ
+    /// </returns>
     public async Task GenerateUniqueKeyAsync(Action<string> callback = null)
     {
         await Task.Run(() =>
