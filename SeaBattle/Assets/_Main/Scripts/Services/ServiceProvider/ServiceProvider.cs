@@ -8,6 +8,7 @@ using UnityEngine;
 public class ServiceProvider
 {
     private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+
     public IService[] Services 
     {
         get
@@ -22,6 +23,7 @@ public class ServiceProvider
             return result;
         }
     }
+
     public int ServicesCount 
     {
         get => _services.Count; 
@@ -38,6 +40,18 @@ public class ServiceProvider
             throw e;
         }
         
+    }
+
+    public void RemoveService(params IService[] services)
+    {
+        try
+        {
+            foreach (IService service in services) _services.Remove(service.GetType());
+        }
+        catch (Exception e)
+        {
+            throw e;
+        }
     }
 
     public IService GetService(Type type)

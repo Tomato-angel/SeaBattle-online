@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="Scripts.Matchmaking.MatchMaker">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AhAkDAAAAAAqACAIAACAAABCAAgAAIAATAAAAgQAABE=</HashCode>
+      <FileName>Assets\_Main\Scripts\Debug\MatchMaker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Scripts.Matchmaking.Match">
+    <Position X="4" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAAQAACAFAAAgAREAANAAAAAABAEAQAIAAgAAABAAAA=</HashCode>
+      <FileName>Assets\_Main\Scripts\Debug\Match.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -10,7 +10,7 @@ namespace Scripts.Matchmaking
 {
     public class MatchMaker
     {
-        
+
         #region [Реализация синглтона]
         private static MatchMaker _instance;
         public static MatchMaker Instance

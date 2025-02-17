@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public interface IService
+public abstract class Service : IService
 {
-    public Player CurrentPlayer { get; }
 }
 

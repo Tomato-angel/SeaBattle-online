@@ -5,10 +5,11 @@ using Mirror;
 /// <summary>
 /// Синглтон-класс для реализации механики чата
 /// </summary>
-public class Chat : NetworkBehaviour
+public class ChatService : NetworkService
 {
-    static private Chat _instance;
-    static public Chat Instance 
+    #region [ Реализация синглтона ]
+    static private ChatService _instance;
+    static public ChatService Instance 
     {
         get
         {
@@ -19,12 +20,10 @@ public class Chat : NetworkBehaviour
             return _instance;
         }
     }
+    #endregion
 
     [SyncVar]
     private SyncList<string> _messages = new SyncList<string>();
-
-
-
 
     public void AddMessage(string message)
     {
@@ -47,10 +46,8 @@ public class Chat : NetworkBehaviour
 
     private void Start()
     {
-        if(_instance == null)
-        {
-            _instance = this;
-        }
+        if(_instance == null) _instance = this;
+        
     }
     private void Update()
     {

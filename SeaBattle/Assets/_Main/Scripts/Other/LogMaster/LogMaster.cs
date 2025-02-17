@@ -11,8 +11,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
-namespace Scripts.LogService
-{
+
     public class LogMaster
     {
         #region [ Реализация синглтона ]
@@ -134,5 +133,5 @@ namespace Scripts.LogService
             SavePath = Application.persistentDataPath;
         }
     }
-}
+
 
