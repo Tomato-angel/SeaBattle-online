@@ -8,8 +8,9 @@ TagManager:
   - DebugField
   - Scene
   - UI
-  - Services
   - Service
+  - ServicesProvider
+  - ProjectManager
   layers:
   - Default
   - TransparentFX

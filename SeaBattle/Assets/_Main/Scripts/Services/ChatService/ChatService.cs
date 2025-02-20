@@ -1,58 +1,63 @@
 using UnityEngine;
 using System;
 using Mirror;
+using System.Text.RegularExpressions;
 
 /// <summary>
 /// Синглтон-класс для реализации механики чата
 /// </summary>
-public class ChatService : NetworkService
+public class ChatService
 {
+    
+    /* Устаревший синглтон за счёт DIContainer
     #region [ Реализация синглтона ]
     static private ChatService _instance;
-    static public ChatService Instance 
+    static public ChatService Instance
     {
         get
         {
-            if(_instance == null)
-            {
-                throw new Exception(" <color=red> No instance chat in main Scene ! </color>");
-            }
+            if (_instance == null) _instance = new ChatService();
             return _instance;
         }
     }
     #endregion
+    */
+    
 
-    [SyncVar]
-    private SyncList<string> _messages = new SyncList<string>();
+    private ChatData _chatData;
+    
 
-    public void AddMessage(string message)
+    [TargetRpc]
+    public void TargetGetMessage(NetworkConnectionToClient target, Message message)
     {
-        _messages.Add(message);
-
-        string logMessage = string.Empty;
-
-        foreach(var tmpMessage in _messages)
-        {
-            logMessage += tmpMessage + '\n';
-        }
-
-        Debug.Log(logMessage);
+        _chatData.Push(message);
     }
 
-    public void ClearMessages()
+    [Command]
+    public void CmdSendMessage(Player target, Message message)
     {
-        _messages.Clear();
+        _chatData.Push(message);
+
+        NetworkIdentity opponentIdentity = target.NetworkIdentity;
+        TargetGetMessage(opponentIdentity.connectionToClient, message);
     }
 
-    private void Start()
+    [Client]
+    public void StartChat()
     {
-        if(_instance == null) _instance = this;
-        
+        _chatData.Clear();
     }
-    private void Update()
+
+    [Client]
+    public void StopChat()
     {
-        
+        _chatData.Clear();
     }
 
 
+    public ChatService() 
+    {
+        _chatData = new ChatData();
+    }
 }
+                                 

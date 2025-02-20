@@ -13,7 +13,7 @@ public class Player : NetworkBehaviour
 {
     // Добавить Player State для отслеживания состояния игрока в целом
 
-    [SerializeField] string _nickName;
+    [SerializeField] ServicesProvider _servicesProvider;
 
     #region [Объявление Mirror - компонентов]
     private NetworkMatch _networkMatch;
@@ -36,6 +36,10 @@ public class Player : NetworkBehaviour
 
     public async void Start() 
     {
+        
+        //ChatService.Instance.Test();
+        //ChatService.Instance.Test();
+
         // CLIENT
         if (isClient)
         {

@@ -19,7 +19,34 @@ namespace Scripts.Matchmaking
         private List<Player> _players;
         public int PlayersCount { get => _players.Count; }
 
-        
+        //public Player[] GetAnotherPlayers()
+        public bool GetAnotherPlayers(Player player, out Player[] anotherPlayers) 
+        {
+            anotherPlayers = new Player[_players.Count - 1];
+            int i = 0;
+            foreach (Player tmpPlayer in _players)
+            {
+                if (tmpPlayer != player)
+                {
+                    anotherPlayers[i] = tmpPlayer;
+                    ++i;
+                }
+            }
+            return true;
+        }
+        public bool GetAnotherPlayer(Player player, out Player anotherPlayer)
+        {
+            anotherPlayer = player;
+            foreach (Player tmpPlayer in _players)
+            {
+                if (tmpPlayer != player)
+                {
+                    anotherPlayer = tmpPlayer;
+                    return true;
+                }
+            }
+            return false;
+        }
         public bool GetPlayer(int index, out Player player)
         {
             player = null;
@@ -27,6 +54,19 @@ namespace Scripts.Matchmaking
             {
                 player = _players[index];
                 return true;
+            }
+            return false;
+        }
+        public bool GetPlayerIndex(Player player, out int index)
+        {
+            index = -1;
+            for(int i = 0; i < _players.Count; ++i)
+            {
+                if (_players[i] == player)
+                {
+                    index = i;
+                    return true;
+                } 
             }
             return false;
         }

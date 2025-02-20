@@ -86,6 +86,21 @@ namespace Scripts.Matchmaking
             pairKeyMatch = (null, null);
             return false;
         }
+        private bool DebugCreateMatch(string matchKey, bool isOpen = false)
+        {
+            Debug.Log($"\t-- Starts create the match");
+            if (_matches.Count < _matchesLimitCount)
+            {
+
+                Match match = new Match(matchKey, isOpen);
+                _matches.Add(matchKey, match);
+                Debug.Log($"\t-- Created match with key: {matchKey}");
+                return true;
+
+            }
+            Debug.Log($"\t-- Can't create the match");
+            return false;
+        }
 
         private bool DeleteMatch(string key)
         {
@@ -235,6 +250,18 @@ namespace Scripts.Matchmaking
             {
                 string key = pairKeyMatch.Item1;
                 callback?.Invoke(ConnectPlayerToMatch(key, player));
+                return;
+            }
+            Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, can't host match");
+            callback?.Invoke(false);
+        }
+        public void DebugHostMatch(Player player, string matchKey, Action<bool> callback = null)
+        {
+            Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host match");
+
+            if (DebugCreateMatch(matchKey, true))
+            {
+                callback?.Invoke(ConnectPlayerToMatch(matchKey, player));
                 return;
             }
             Debug.Log($"\t-- Player connId: {player.connectionToClient.connectionId}, can't host match");

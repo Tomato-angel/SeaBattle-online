@@ -5,8 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-public interface IService
+public interface INotify
 {
-    public Player CurrentPlayer { get; }
 }
 

@@ -9,8 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <ProjectGuid>{03249F84-3159-3F30-31AE-2E422F42F8B3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -67,24 +66,32 @@
     <Compile Include="Assets\_Main\Scripts\Other\FSM\FSMState.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\PlayersManager.cs" />
     <Compile Include="Assets\_Main\Scripts\Other\TaskPool\TaskPool.cs" />
-    <Compile Include="Assets\_Main\Scripts\Services\ServiceProvider\Service.cs" />
+    <Compile Include="Assets\_Main\Scripts\Services\ChatService\Message.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\Test.cs" />
     <Compile Include="Assets\_Main\Scripts\Services\StorageService\IStorageService.cs" />
+    <Compile Include="Assets\_Main\Scripts\Debug\IService.cs" />
+    <Compile Include="Assets\_Main\Scripts\Managers\ProjectBootstrap.cs" />
     <Compile Include="Assets\_Main\Scripts\_\Callback\CallbackManager.cs" />
-    <Compile Include="Assets\_Main\Scripts\Services\ServiceProvider\ServiceProvider.cs" />
+    <Compile Include="Assets\_Main\Scripts\Services\NotifyService\INotify.cs" />
+    <Compile Include="Assets\_Main\Scripts\Services\ChatService\ChatData.cs" />
+    <Compile Include="Assets\_Main\Scripts\Debug\NetworkService.cs" />
+    <Compile Include="Assets\_Main\Scripts\Debug\Service.cs" />
+    <Compile Include="Assets\_Main\Scripts\Debug\IMatchBinding.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\KeyGenerator.cs" />
+    <Compile Include="Assets\_Main\Scripts\Other\DI\DIContainer.cs" />
     <Compile Include="Assets\_Main\Scripts\_\Callback\Callback.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\_Main\Scripts\Services\NotifyService\Notifiy.cs" />
     <Compile Include="Assets\_Main\Scripts\Services\NotifyService\NotifyService.cs" />
-    <Compile Include="Assets\_Main\Scripts\Services\ServiceProvider\NetworkService.cs" />
+    <Compile Include="Assets\_Main\Scripts\Managers\ProjectManager.cs" />
     <Compile Include="Assets\_Main\Scripts\Other\FSM\FSM.cs" />
     <Compile Include="Assets\_Main\Scripts\GameManager.cs" />
+    <Compile Include="Assets\_Main\Scripts\_\ServiceProvider\ServicesProvider.cs" />
+    <Compile Include="Assets\_Main\Scripts\Other\DI\DIRegistration.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\MatchMaker.cs" />
     <Compile Include="Assets\_Main\Scripts\Other\LogMaster\LogMaster.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\Match.cs" />
     <Compile Include="Assets\_Main\Scripts\Debug\Player.cs" />
-    <Compile Include="Assets\_Main\Scripts\Services\ServiceProvider\IService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
@@ -120,7 +127,6 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\Mirror\Hosting\Readme.txt" />
-    <None Include="MatchMaking_diagram.cd" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
