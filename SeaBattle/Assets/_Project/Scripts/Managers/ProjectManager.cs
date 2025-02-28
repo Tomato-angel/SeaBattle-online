@@ -28,7 +28,6 @@ public class ProjectManager : NetworkBehaviour
         // _projectServices.RegisterSingleton( (_) => new ...Service(... -> сюда можно передавать свои параметры конструктора));
     }
 
-    
     private void Start()
     {
         DontDestroyOnLoad(gameObject);

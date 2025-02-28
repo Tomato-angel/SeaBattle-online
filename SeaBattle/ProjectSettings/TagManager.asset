@@ -9,8 +9,10 @@ TagManager:
   - Scene
   - UI
   - Service
-  - ServicesProvider
   - ProjectManager
+  - GameManager
+  - SceneManager
+  - DebugObj
   layers:
   - Default
   - TransparentFX
