@@ -1,25 +1,46 @@
+using Mirror;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace Scripts.Matchmaking
 {
+    [Serializable]
+    public class SyncListGameObject : SyncList<GameObject> { }
+
     [Serializable]
     public class Match
     {
 
         //Добавить некоторый MatchState для случаев когда матч запущен, игра идёт и всё закончено и прочее...
-        public bool IsFull { get; set; }
-        public bool IsOpen { get; set; }
-
-        public string Key { get; set; }
-
-        private Guid _id;
+        public bool IsFull;
+        public bool IsOpen;
+        public string Key;
+        public Guid _id;
         public Guid ID { get => _id; }
 
-        private List<Player> _players;
+
+        public List<Player> _players = new List<Player>();
         public int PlayersCount { get => _players.Count; }
+        public event Action MatchIsFull;
 
         //public Player[] GetAnotherPlayers()
+
+        public Player[] GetPlayers()
+        {
+            return _players.ToArray();
+        }
+        public PlayerData[] GetPlayersData()
+        {
+            PlayerData[] playersData = new PlayerData[_players.Count];
+            for(int i = 0; i < _players.Count; ++i)
+            {
+                playersData[i] = _players[i].playerData;
+            }
+            return playersData;
+        }
+
         public bool GetAnotherPlayers(Player player, out Player[] anotherPlayers) 
         {
             anotherPlayers = new Player[_players.Count - 1];
@@ -76,6 +97,7 @@ namespace Scripts.Matchmaking
             {
                 _players.Add(player);
                 player.NetworkMatch.matchId = _id;
+                if (IsFull) MatchIsFull?.Invoke();
                 return true;
             }
             return false;
@@ -97,6 +119,21 @@ namespace Scripts.Matchmaking
             }
             return false;
         }
+
+        public bool IsAllPlayersValid()
+        {
+            bool isValid = true;
+            for(int i = 0; i < _players.Count; ++i)
+            {
+                if (_players[i] == null)
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+            return isValid;
+        }
+
         public void Clear()
         {
             _players.Clear();
@@ -125,7 +162,13 @@ namespace Scripts.Matchmaking
 
         public static Match Empty { get => new Match(); }
 
-
+        public void UpdateMatchInfo(string key, bool isOpen)
+        {
+            Clear();
+            _id = KeyGenerator.Instance.KeyToGui(key);
+            IsOpen = isOpen;
+            Key = key;
+        }
         public Match()
         {
             _id = new Guid();

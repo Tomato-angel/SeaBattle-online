@@ -5,6 +5,8 @@ using TMPro;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
+using Mirror;
+using Mirror.BouncyCastle.Asn1.BC;
 
 namespace Scripts.Matchmaking
 {
@@ -38,6 +40,7 @@ namespace Scripts.Matchmaking
         private Dictionary<string, Match> _matches;
         public Dictionary<string, Match> Matches { get => _matches; }
 
+        // Необходимо обновить т.к. синхронный метод обзавёлся проверкой на пустые матчи и теперь умеет выдывать значение пустого матча
         private async Task CreateMatchAsync(Action<bool, string, Match> callback, bool isOpen = false)
         {
             await Task.Run(async () =>
@@ -82,6 +85,22 @@ namespace Scripts.Matchmaking
                     return true;
                 }
             }
+            else
+            {
+                if (FindEmptyMatch(out Match match))
+                {
+                    string key = string.Empty;
+                    if (KeyGenerator.Instance.TryGenerateKey(out key))
+                    {
+                        _matches.Remove(match.Key);
+                        match = new Match(key, isOpen);
+                        _matches.Add(key, match);
+                        Debug.Log($"\t-- Created match with key: {key}");
+                        pairKeyMatch = (key, match);
+                        return true;
+                    }
+                }
+            } 
             Debug.Log($"\t-- Can't create the match");
             pairKeyMatch = (null, null);
             return false;
@@ -114,6 +133,21 @@ namespace Scripts.Matchmaking
             return false;
         }
 
+        private bool FindEmptyMatch(out Match emptyMatch)
+        {
+            foreach ((string key, Match match) in _matches)
+            {
+                if (match.PlayersCount == 0)
+                {
+                    emptyMatch = match;
+                    return true;
+                }
+            }
+            emptyMatch = null;
+            return false;
+
+        }
+
         private int RemoveEmptyMatches()
         {
             int emptyMatchesCount = 0;
@@ -127,6 +161,32 @@ namespace Scripts.Matchmaking
             }
             return emptyMatchesCount;
         }
+
+        private void UpdateCurrentMatchInfoForAllMatchPlayers(string key)
+        {
+            if(_matches.ContainsKey(key))
+            {
+                foreach(Player player in _matches[key].GetPlayers())
+                {
+                    player.CurrentMatch = _matches[key];
+                }
+            }
+        }
+        /*
+        public async void RunEmptyMatchesCleanupCycleAsync(int millisecondsDelay)
+        {
+            while (true)
+            {
+                Debug.Log("AAAAAAAAAAAAAAAAA");
+                int emptyMatchesCount = RemoveEmptyMatches();
+                if (emptyMatchesCount > 0)
+                {
+                    Debug.Log($"[MatchMaker] {emptyMatchesCount} Empty matches were removed");
+                }
+                await Task.Delay(millisecondsDelay);
+            }
+        }
+        */
 
         private bool ConnectPlayerToMatch(string key, Player player)
         {
@@ -146,6 +206,7 @@ namespace Scripts.Matchmaking
                     player.NetworkMatch.matchId = _matches[key].ID;
 
                     Debug.Log($"\t-- Connect to match with key: {key} the Player: {player.connectionToClient.connectionId}");
+                    //UpdateCurrentMatchInfoForAllMatchPlayers(key);
                     return true;
                 }
             }
@@ -162,15 +223,14 @@ namespace Scripts.Matchmaking
             {
                 if (_matches[key].DeletePlayer(player))
                 {
-                    /* Нужно придумать куда вынести очистку пустых матчей или мёртвых матчей
                     if (_matches[key].PlayersCount == 0)
                     {
                         DeleteMatch(key);
                     }
-                    */
+                    
 
                     player.CurrentMatch = null;
-                    player.NetworkMatch.matchId = Guid.Empty;
+                    player.NetworkMatch.matchId = Guid.NewGuid();
 
                     Debug.Log($"\t-- Player: {player.connectionToClient.connectionId} was disconnected from match with key: {key}");
                     return true;
@@ -198,6 +258,12 @@ namespace Scripts.Matchmaking
 
         private bool ForceDisconnectPlayerFromMatch(Player player)
         {
+            /*
+            Match match = player.CurrentMatch;
+            if(match != null)
+                if(match.ContainsPlayer(player))
+                    match.DeletePlayer(player);
+            */
             player.CurrentMatch = null;
             player.NetworkMatch.matchId = Guid.Empty;
 
@@ -218,6 +284,8 @@ namespace Scripts.Matchmaking
         public async void HostMatchAsync(Player player, Action<bool> callback = null)
         {
             Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host match");
+
+            //ForceDisconnectPlayerFromMatch(player);
 
             bool isSuccessfullyCreated = false;
             string key = string.Empty;
@@ -242,9 +310,15 @@ namespace Scripts.Matchmaking
         }
 
         // Устаревшее : синхронный хостинг матча
+        // БЫЛ ПЕРЕДЕЛАН, НУЖНО ИСПРАВИТЬ АСИНХРОННУЮ ВАРИАЦИЮ
+        // Добавилась обработка, теперь при запросе на хостинг игрок автоматически отключается от своего предыдущего матча
         public void HostMatch(Player player, Action<bool> callback = null)
         {
             Debug.Log($"- Player connId: {player.connectionToClient.connectionId}, starts host match");
+
+            //ForceDisconnectPlayerFromMatch(player);
+            if(player.CurrentMatch != null)
+                DisconnectPlayerFromMatch(player.CurrentMatch.Key, player);
 
             if (CreateMatch(out (string, Match) pairKeyMatch, true))
             {
@@ -399,7 +473,7 @@ namespace Scripts.Matchmaking
 
         #endregion
 
-        public MatchMaker(int maxMatchPlayers = 2, int matchesLimitCount = 10)
+        public MatchMaker(int maxMatchPlayers = 2, int matchesLimitCount = 5)
         {
             _maxMatchPlayers = maxMatchPlayers;
             _matchesLimitCount = matchesLimitCount;

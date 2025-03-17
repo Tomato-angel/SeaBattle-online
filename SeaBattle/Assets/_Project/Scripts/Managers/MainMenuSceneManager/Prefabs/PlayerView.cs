@@ -1,0 +1,35 @@
+using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+[Serializable]
+public class PlayerView : MonoBehaviour
+{
+    [field: SerializeField] private Player _player;
+    [field: SerializeField] private Image _playerIconView;
+    [field: SerializeField] private Image _readyStatusView;
+    [field: SerializeField] private TextMeshProUGUI _playerNickNameView;
+
+    public void SetPlayer(Player player)
+    {
+        _player = player;
+    }
+    public Player GetPlayer()
+    {
+        return _player;
+    }
+    public void SetIcon()
+    {
+
+    }
+    public void SetNickName(string nickName)
+    {
+        _playerNickNameView.text = nickName;
+    }
+
+    public void SetReadyStatus(bool isReady)
+    {
+        _readyStatusView.gameObject.SetActive(isReady);
+    }
+}

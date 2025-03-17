@@ -5,7 +5,7 @@ namespace Scripts.FSM
 {
     public class FSM
     {
-        private FSMState CurrentState { get; set; }
+        public FSMState CurrentState { get; private set; }
         private Dictionary<Type, FSMState> _states = new Dictionary<Type, FSMState>();
         
         // Устаревшее
@@ -22,7 +22,7 @@ namespace Scripts.FSM
         public void SetState<T>() where T : FSMState
         {
             var type = typeof(T);
-            if (CurrentState.GetType() == type)
+            if (CurrentState?.GetType() == type)
             {
                 return;
             }

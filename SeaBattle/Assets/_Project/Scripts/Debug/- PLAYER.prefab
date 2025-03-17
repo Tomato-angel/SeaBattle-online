@@ -82,4 +82,13 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  message: 
+  _playerData:
+    <nickName>k__BackingField: default-name
+  <NetworkMatch>k__BackingField: {fileID: 0}
+  <NetworkIdentity>k__BackingField: {fileID: 0}
+  _currentMatchData:
+    _isFull: 0
+    _isOpen: 1
+    _publicKey: 
+    _playersCount: 0
+  _isReady: 0

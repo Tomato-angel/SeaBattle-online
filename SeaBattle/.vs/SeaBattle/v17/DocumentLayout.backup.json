@@ -3,72 +3,120 @@
   "WorkspaceRootPath": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|e:\\unity\\unityproject\\seabattle-online\\seabattle\\assets\\_project\\scripts\\services\\shipdeploymentservice\\shipdeploymentfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\shipdeploymentservice\\shipdeploymentfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\projectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\projectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\shipdeploymentservice\\draganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\shipdeploymentservice\\draganddrop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|e:\\unity\\unityproject\\seabattle-online\\seabattle\\assets\\_project\\scripts\\managers\\registrationscenemanager\\registrationscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\registrationscenemanager\\registrationscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\shipdeploymentservice\\altitudelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\shipdeploymentservice\\altitudelevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\debug\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\debug\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\shipdeploymentservice\\shipsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\shipdeploymentservice\\shipsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gamescenemanager\\gamescenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gamescenemanager\\gamescenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gamescenemanager\\gsmdefaultstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gamescenemanager\\gsmdefaultstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\storageservice\\jsontofilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\storageservice\\jsontofilestorageservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\Player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\other\\eventbus\\eventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\other\\eventbus\\eventbus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gamescenemanager\\gsmmainmenustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gamescenemanager\\gsmmainmenustate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gamescenemanager\\gsmgameplaystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gamescenemanager\\gsmgameplaystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\menupanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\menupanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\playersmatchviewerpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\playersmatchviewerpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\mainmenuscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\mainmenuscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\mainmenupanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\mainmenupanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\Match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\hostgamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\hostgamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\NetworkService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\NetworkService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\joingamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\joingamepanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\Service.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\prefabs\\playerview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\prefabs\\playerview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\_Main\\Scripts\\Debug\\IService.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gamescenemanager\\gsmregistrationstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gamescenemanager\\gsmregistrationstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\mainmenuscenemanager\\prefabs\\countdownpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\mainmenuscenemanager\\prefabs\\countdownpanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\sceneloadservice\\sceneloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\sceneloadservice\\sceneloadservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\debug\\matchmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\debug\\matchmaker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\data\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\data\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\services\\matchmakerservice\\matchmakerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\services\\matchmakerservice\\matchmakerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\debug\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\debug\\match.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\data\\matchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\data\\matchdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\data\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\data\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\managers\\gameplayscenemanager\\gameplayscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\managers\\gameplayscenemanager\\gameplayscenemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\simplesolutions\\registrationfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\simplesolutions\\registrationfield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\other\\fsm\\fsm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\other\\fsm\\fsm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\assets\\_project\\scripts\\other\\fsm\\fsmstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{03249F84-3159-3F30-31AE-2E422F42F8B3}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\other\\fsm\\fsmstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,19 +126,87 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Player.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Player.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\Player.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Player.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\Player.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAswCcAAAAKAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ProjectManager.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\ProjectManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\ProjectManager.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\ProjectManager.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\ProjectManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T05:58:24.731Z",
+              "WhenOpened": "2025-03-03T22:21:03.321Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EventBus.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\EventBus\\EventBus.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Other\\EventBus\\EventBus.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\EventBus\\EventBus.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Other\\EventBus\\EventBus.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-01T11:51:52.599Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "GameSceneManager.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GameSceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GameSceneManager.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GameSceneManager.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GameSceneManager.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T14:20:12.501Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Debug\\Player.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\Player.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Debug\\Player.cs",
+              "ViewState": "AgIAAFsBAAAAAAAAAAAiwBUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T14:06:02.318Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "JoinGamePanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\JoinGamePanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\JoinGamePanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\JoinGamePanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\JoinGamePanel.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAqwDYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T03:54:24.601Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "HostGamePanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\HostGamePanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\HostGamePanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\HostGamePanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\HostGamePanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwC4AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:23:03.637Z",
               "IsPinned": true
             },
             {
@@ -103,195 +219,281 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShipDeploymentField.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipDeploymentField.cs",
-              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipDeploymentField.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipDeploymentField.cs",
-              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipDeploymentField.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAABBwBcAAAA7AAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "GSMDefaultState.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMDefaultState.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMDefaultState.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMDefaultState.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMDefaultState.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T13:51:45.775Z",
+              "WhenOpened": "2025-03-17T01:06:47.085Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DragAndDrop.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\DragAndDrop.cs",
-              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\DragAndDrop.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\DragAndDrop.cs",
-              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\DragAndDrop.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAABQwB0AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T11:04:44.975Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AltitudeLevel.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\AltitudeLevel.cs",
-              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\AltitudeLevel.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\AltitudeLevel.cs",
-              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\AltitudeLevel.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBAAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T10:34:42.346Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ShipSegment.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipSegment.cs",
-              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipSegment.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipSegment.cs",
-              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\ShipDeploymentService\\ShipSegment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T09:52:19.381Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ProjectBootstrap.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Managers\\ProjectBootstrap.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAqwB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T06:23:34.107Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProjectManager.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Managers\\ProjectManager.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T05:45:51.631Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IMatchBinding.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\IMatchBinding.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T05:19:48.275Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DIRegistration.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Other\\DI\\DIRegistration.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T04:23:00.646Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "DIContainer.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Other\\DI\\DIContainer.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAAHMAAAAAAAAAAAAAAA==",
+              "Title": "PlayersMatchViewerPanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\PlayersMatchViewerPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\PlayersMatchViewerPanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\PlayersMatchViewerPanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\PlayersMatchViewerPanel.cs",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAAAIIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T04:20:13.601Z"
+              "WhenOpened": "2025-03-11T18:33:06.388Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ChatData.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Services\\ChatService\\ChatData.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "MatchData.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\MatchData.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Data\\MatchData.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\MatchData.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Data\\MatchData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T03:55:49.681Z"
+              "WhenOpened": "2025-03-11T01:55:17.783Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ChatService.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Services\\ChatService\\ChatService.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
+              "DocumentIndex": 17,
+              "Title": "CountdownPanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\CountdownPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\CountdownPanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\CountdownPanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\CountdownPanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T02:03:55.966Z"
+              "WhenOpened": "2025-03-10T22:28:50.551Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "Match.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Match.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\Match.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Match.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\Match.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAowFsAAAAnAAAAAAAAAA==",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\Match.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Debug\\Match.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\Match.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Debug\\Match.cs",
+              "ViewState": "AgIAADgAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T22:27:43.452Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "NetworkService.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\NetworkService.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\NetworkService.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\NetworkService.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\NetworkService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T22:13:12.184Z"
+              "WhenOpened": "2025-03-10T00:35:47.238Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "Service.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Service.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\Service.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\Service.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\Service.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwA0AAAAEAAAAAAAAAA==",
+              "Title": "PlayerView.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\PlayerView.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\PlayerView.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\PlayerView.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\Prefabs\\PlayerView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T22:13:02.828Z"
+              "WhenOpened": "2025-03-10T00:29:17.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MatchMaker.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\MatchMaker.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Debug\\MatchMaker.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Debug\\MatchMaker.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Debug\\MatchMaker.cs",
+              "ViewState": "AgIAALcAAAAAAAAAAAAiwOMAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T02:32:37.588Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "MatchMakerService.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\MatchMakerService\\MatchMakerService.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\MatchMakerService\\MatchMakerService.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\MatchMakerService\\MatchMakerService.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\MatchMakerService\\MatchMakerService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-09T02:13:29.579Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MainMenuPanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuPanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuPanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuPanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T18:22:31.234Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MenuPanel.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MenuPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MenuPanel.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MenuPanel.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MenuPanel.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T17:58:11.765Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainMenuSceneManager.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuSceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuSceneManager.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuSceneManager.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\MainMenuSceneManager\\MainMenuSceneManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAADgAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T16:42:37.796Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PlayerData.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\PlayerData.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Data\\PlayerData.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\PlayerData.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Data\\PlayerData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T13:26:16.78Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "RegistrationField.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\SimpleSolutions\\RegistrationField.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\SimpleSolutions\\RegistrationField.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\SimpleSolutions\\RegistrationField.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\SimpleSolutions\\RegistrationField.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwAkAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T02:23:47.907Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RegistrationSceneManager.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\RegistrationSceneManager\\RegistrationSceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\RegistrationSceneManager\\RegistrationSceneManager.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\RegistrationSceneManager\\RegistrationSceneManager.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\RegistrationSceneManager\\RegistrationSceneManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T01:29:07.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ProjectData.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\ProjectData.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Data\\ProjectData.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Data\\ProjectData.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Data\\ProjectData.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T01:17:58.213Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "FSM.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\FSM\\FSM.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Other\\FSM\\FSM.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\FSM\\FSM.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Other\\FSM\\FSM.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAqwBgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-08T00:52:22.713Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "FSMState.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\FSM\\FSMState.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Other\\FSM\\FSMState.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Other\\FSM\\FSMState.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Other\\FSM\\FSMState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T21:28:06.728Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ServicesProvider.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Services\\ServiceProvider\\ServicesProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4AAAAAAAAAAAAAAA==",
+              "Title": "JsonToFileStorageService.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\StorageService\\JsonToFileStorageService.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\StorageService\\JsonToFileStorageService.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\StorageService\\JsonToFileStorageService.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\StorageService\\JsonToFileStorageService.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAqwE8AAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T21:56:41.687Z"
+              "WhenOpened": "2025-03-07T21:27:02.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SceneLoadService.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\SceneLoadService\\SceneLoadService.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Services\\SceneLoadService\\SceneLoadService.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Services\\SceneLoadService\\SceneLoadService.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Services\\SceneLoadService\\SceneLoadService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T20:53:20.779Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GameplaySceneManager.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameplaySceneManager\\GameplaySceneManager.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameplaySceneManager\\GameplaySceneManager.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameplaySceneManager\\GameplaySceneManager.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameplaySceneManager\\GameplaySceneManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T14:35:15.007Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GSMGameplayState.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMGameplayState.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMGameplayState.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMGameplayState.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMGameplayState.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T14:35:13.35Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "IService.cs",
-              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IService.cs",
-              "RelativeDocumentMoniker": "Assets\\_Main\\Scripts\\Debug\\IService.cs",
-              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Main\\Scripts\\Debug\\IService.cs",
-              "RelativeToolTip": "Assets\\_Main\\Scripts\\Debug\\IService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAmAAAAAAAAAA==",
+              "Title": "GSMRegistrationState.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMRegistrationState.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMRegistrationState.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMRegistrationState.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMRegistrationState.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBMAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T02:16:25.652Z"
+              "WhenOpened": "2025-03-07T14:34:55.198Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GSMMainMenuState.cs",
+              "DocumentMoniker": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMMainMenuState.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMMainMenuState.cs",
+              "ToolTip": "E:\\Unity\\UnityProject\\SeaBattle-online\\SeaBattle\\Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMMainMenuState.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Managers\\GameSceneManager\\GSMMainMenuState.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAUwBMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-07T14:34:31.912Z"
             }
           ]
         }

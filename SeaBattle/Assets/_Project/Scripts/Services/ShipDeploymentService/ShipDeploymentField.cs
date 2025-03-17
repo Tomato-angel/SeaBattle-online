@@ -32,18 +32,49 @@ public class ShipDeploymentField : MonoBehaviour
 
     void Update()
     {
-        DraggingObject();
+       //DraggingObject();
     }
 
+
+    [SerializeField] float screenWidth = 1920;
+    [SerializeField] float screenHeight = 1080;
     public void DraggingObject()
     {
+        
         Vector3 screenPosition = Input.mousePosition;
-        Debug.Log($"[{screenPosition}], []");
-        screenPosition.x = screenPosition.x / Screen.width * 1920;
-        screenPosition.y = screenPosition.y / Screen.height * 1080;
-        Debug.Log($"[{screenPosition}], []");
+        //Debug.Log($"[{screenPosition}], []");
+        
+
+        //screenPosition.x = screenPosition.x  / Screen.width * 1920;
+        //screenPosition.y = screenPosition.y / Screen.height * 1080;
+
+        //float coordX = screenPosition.x / Screen.width * 1920f;
+        float coordX = screenPosition.x;
+        
+        /*
+        if (coordX > screenWidth)
+            coordX = 1920;
+        if (coordX < 0)
+            coordX = 0;
+        */
+        
+        
+        //float coordY = screenPosition.y / Screen.height * 1080f;
+        float coordY = screenPosition.y;
+        
+        /*if (coordY > screenHeight)
+            coordY = 1080;
+        if (coordY < 0)
+            coordY = 0;*/
+        
+
+        screenPosition.x = coordX;
+        screenPosition.y = coordY;
+
+        //Debug.Log($"[{screenPosition}], []");
         //screenPosition.z = Camera.main.nearClipPlane;
         //Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
+        Debug.Log($"{screenPosition}");
 
 
         RaycastHit hit;
