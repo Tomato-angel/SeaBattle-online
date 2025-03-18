@@ -33,6 +33,6 @@ public class RegistrationField : MonoBehaviour
         _inputField.ActivateInputField();
         _inputField.caretPosition = _inputField.text.Length;
         Text = _inputField.text;
-        Debug.Log(Text + "  " + (Text.Length > 0).ToString());
+        //Debug.Log(Text + "  " + (Text.Length > 0).ToString());
     }
 }

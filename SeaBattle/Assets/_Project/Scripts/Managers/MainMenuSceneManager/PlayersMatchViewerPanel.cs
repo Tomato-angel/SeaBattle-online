@@ -125,6 +125,7 @@ public class PlayersMatchViewerPanel : MenuPanel
         PlayerView playerView = Instantiate(_playerViewPrefab, _playersViewer.transform).GetComponent<PlayerView>();
         playerView.SetNickName(player.playerData.nickName);
         playerView.SetReadyStatus(player.IsReady);
+        playerView.SetIcon(player);
         playerView.SetPlayer(player);
         _playersViews.Add(playerView);
         /*
@@ -164,6 +165,7 @@ public class PlayersMatchViewerPanel : MenuPanel
             {
                 playerView.SetNickName(player.playerData.nickName);
                 playerView.SetReadyStatus(player.IsReady);
+                playerView.SetIcon(player);
                 playerView.SetPlayer(player);
             }
         }

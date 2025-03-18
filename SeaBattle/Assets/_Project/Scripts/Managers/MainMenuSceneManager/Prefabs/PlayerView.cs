@@ -6,22 +6,23 @@ using UnityEngine.UI;
 [Serializable]
 public class PlayerView : MonoBehaviour
 {
-    [field: SerializeField] private Player _player;
+    [field: SerializeField] private Player _localPlayer;
+    [field: SerializeField] private AvatarsDatabase _avatarsDatabase;
     [field: SerializeField] private Image _playerIconView;
     [field: SerializeField] private Image _readyStatusView;
     [field: SerializeField] private TextMeshProUGUI _playerNickNameView;
 
     public void SetPlayer(Player player)
     {
-        _player = player;
+        _localPlayer = player;
     }
     public Player GetPlayer()
     {
-        return _player;
+        return _localPlayer;
     }
-    public void SetIcon()
+    public void SetIcon(Player player)
     {
-
+        _playerIconView.sprite = _avatarsDatabase.Get(player.playerData.avatarKey);
     }
     public void SetNickName(string nickName)
     {

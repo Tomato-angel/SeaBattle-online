@@ -81,6 +81,7 @@
     <Compile Include="Assets\_Project\Scripts\Services\InteractionService\Interactor.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ShipDeploymentService\ShipDeploymentField.cs" />
     <Compile Include="Assets\_Project\Scripts\Debug\MatchMaker.cs" />
+    <Compile Include="Assets\_Project\Scripts\SimpleSolutions\CursorLauncher.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ChatService\ChatData.cs" />
     <Compile Include="Assets\_Project\Scripts\Gameplay\ViewController\CameraViewPoint.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ChatService\ChatService.cs" />
@@ -97,6 +98,8 @@
     <Compile Include="Assets\_Project\Scripts\_\IService.cs" />
     <Compile Include="Assets\_Project\Scripts\Other\TaskPool\TaskPool.cs" />
     <Compile Include="Assets\_Project\Scripts\SimpleSolutions\RegistrationField.cs" />
+    <Compile Include="Assets\_Project\Scripts\SimpleSolutions\OpenScenePanel.cs" />
+    <Compile Include="Assets\_Project\Scripts\Data\AvatarsDatabase.cs" />
     <Compile Include="Assets\_Project\Scripts\_\Service.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\InteractionService\IInterectable.cs" />
     <Compile Include="Assets\_Project\Scripts\Data\ProjectData.cs" />

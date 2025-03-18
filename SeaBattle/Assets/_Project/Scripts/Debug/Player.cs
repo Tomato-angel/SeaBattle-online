@@ -266,7 +266,7 @@ public class Player : NetworkBehaviour, IInitializable
             player.TargetNotifyAboutUpdatePropertiesAsync(this);
         }
 
-        if(isAllPlayersReady)
+        if(isAllPlayersReady && _currentMatch.IsFull)
         {
             foreach (Player player in players)
             {

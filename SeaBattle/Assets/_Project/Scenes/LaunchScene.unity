@@ -575,8 +575,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _currentConnectionProtocol: 0
-  _millisecondsDelay: 0
+  _currentConnectionProtocol: 2
+  _millisecondsDelay: 5000
   <CurrentNetworkManager>k__BackingField: {fileID: 0}
   <IsInitialized>k__BackingField: 0
   <LocalPlayer>k__BackingField: {fileID: 0}

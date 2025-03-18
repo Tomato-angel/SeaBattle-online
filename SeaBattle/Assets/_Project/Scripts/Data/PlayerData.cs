@@ -8,6 +8,7 @@ using UnityEngine;
 [Serializable]
 public class PlayerData
 {
+    public string avatarKey = "avatar-1";
     public string nickName = "default-name";
 }
 

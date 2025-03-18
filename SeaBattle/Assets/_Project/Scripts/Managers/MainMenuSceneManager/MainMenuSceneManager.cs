@@ -12,7 +12,7 @@ public class MainMenuSceneManager : MonoBehaviour
     [SerializeField] MainMenuPanel _mainMenuPanel;
     [SerializeField] HostGamePanel _hostGamePanel;
     [SerializeField] JoinGamePanel _joinGamePanel;
-    [SerializeField] FindGamePanel _findGamePanel;
+    //[SerializeField] FindGamePanel _findGamePanel;
 
     [Client]
     void Start()
@@ -27,31 +27,36 @@ public class MainMenuSceneManager : MonoBehaviour
         _mainMenuPanel.SetActive(_mainMenuPanel == _currentPanel);
         _hostGamePanel.SetActive(_hostGamePanel == _currentPanel);
         _joinGamePanel.SetActive(_joinGamePanel == _currentPanel);
-        _findGamePanel.SetActive(_findGamePanel == _currentPanel);
+        //_findGamePanel.SetActive(_findGamePanel == _currentPanel);
     }
 
     [Client]
     public void ToMainMenu()
     {
+        if (_mainMenuPanel == null) return;
         _currentPanel = _mainMenuPanel;
         ShowOnlyCurrentPanel();
     }
 
+    /*
     [Client]
     public void ToFindGameMenu()
     {
+        if (_findGamePanel == null) return;
         _currentPanel = _findGamePanel;
         ShowOnlyCurrentPanel();
-    }
+    }*/
     [Client]
     public void ToHostGameMenu()
     {
+        if (_hostGamePanel == null) return;
         _currentPanel = _hostGamePanel;
         ShowOnlyCurrentPanel();
     }
     [Client]
     public void ToJoinGameMenu()
     {
+        if (_joinGamePanel == null) return;
         _currentPanel = _joinGamePanel;
         ShowOnlyCurrentPanel();
     }

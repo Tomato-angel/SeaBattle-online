@@ -50,7 +50,7 @@ Material:
     - _NoiseAmount: 0.02
     - _NoiseScale: 550
     - _NoiseSpeed: 0.01
-    - _ScanningLines: 40
+    - _ScanningLines: 80
     - _ScanningLinesAmount: 0.15
     - _ScanningSpeed: 0.1
     - _Stencil: 0

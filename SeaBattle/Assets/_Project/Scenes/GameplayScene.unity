@@ -712,7 +712,7 @@ Light:
   serializedVersion: 11
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 12355.455
+  m_Intensity: 1065.3844
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1316,7 +1316,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 7bb9e0902a0bc6340a0f9cf6410b6f27, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
@@ -1394,7 +1394,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: d97aa9e1f587abe4c80eed302e12f290, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 37f5974c98120814eb1717e6680644d3, type: 2}
 --- !u!1 &831555874
 GameObject:
   m_ObjectHideFlags: 0
