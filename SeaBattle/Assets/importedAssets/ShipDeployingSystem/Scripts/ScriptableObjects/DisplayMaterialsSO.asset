@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624b79abc7c0f50439d9f641f44e5ac4, type: 3}
+  m_Name: DisplayMaterialsSO
+  m_EditorClassIdentifier: 
+  materialsData:
+  - <ID>k__BackingField: 0
+    <material>k__BackingField: {fileID: 2100000, guid: 01c3c6e1eed4c744688fa218fe15d8e8, type: 2}
+  - <ID>k__BackingField: 1
+    <material>k__BackingField: {fileID: 2100000, guid: e1192c4212cbf0242a253ded952b34d4, type: 2}
+  - <ID>k__BackingField: 2
+    <material>k__BackingField: {fileID: 2100000, guid: dc03f705567cffe489e7bedce44b8f50, type: 2}

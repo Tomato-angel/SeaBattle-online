@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7504f3e853c6f914bb13d04752debf35, type: 3}
+  m_Name: ShipsDatabase
+  m_EditorClassIdentifier: 
+  shipsData:
+  - <ID>k__BackingField: 0
+    <Size>k__BackingField:
+      x: 1
+      z: 1
+    <ShipPrefab>k__BackingField: {fileID: 7442926393122517276, guid: 62456781b117af442ba5880146317b3c, type: 3}
+    <ShipAmount>k__BackingField: 0
+  - <ID>k__BackingField: 1
+    <Size>k__BackingField:
+      x: 1
+      z: 1
+    <ShipPrefab>k__BackingField: {fileID: 5384841935896654340, guid: e87d10de88698ab4ba633d92f6503d16, type: 3}
+    <ShipAmount>k__BackingField: 4
+  - <ID>k__BackingField: 2
+    <Size>k__BackingField:
+      x: 2
+      z: 1
+    <ShipPrefab>k__BackingField: {fileID: 889244279685950973, guid: 181bc5b37f7459f479a00334a6a5eb2d, type: 3}
+    <ShipAmount>k__BackingField: 3
+  - <ID>k__BackingField: 3
+    <Size>k__BackingField:
+      x: 1
+      z: 3
+    <ShipPrefab>k__BackingField: {fileID: 7825573491839985698, guid: aecd760c4fe7bc747bbb5c22f192ae07, type: 3}
+    <ShipAmount>k__BackingField: 2
+  - <ID>k__BackingField: 4
+    <Size>k__BackingField:
+      x: 4
+      z: 1
+    <ShipPrefab>k__BackingField: {fileID: 1202927907830400631, guid: b441ea7ff1c32634e8c7ff39ee5cafd8, type: 3}
+    <ShipAmount>k__BackingField: 1
