@@ -7,6 +7,19 @@ using UnityEngine;
 
 public class PlacementSystem_new : MonoBehaviour
 {
+
+    private bool _isActive;
+    public void SetActive(bool isActive)
+    {
+        _isActive = isActive;
+
+        inputManager.SetActive(isActive);
+        buttonLogic.SetActive(isActive);
+        objectPlacer.IsActive = isActive;
+        previewSystem.IsActive = isActive;
+    }
+
+
     [SerializeField]
     private ShipDeploymentInputManager inputManager;
 
@@ -36,6 +49,8 @@ public class PlacementSystem_new : MonoBehaviour
             shipsList.Add(new Ship(ship.ID, ship.ShipAmount));
         }
     }
+
+    public event Action<bool> allShipsSeployed;
     #endregion
 
     [SerializeField]
@@ -116,9 +131,23 @@ public class PlacementSystem_new : MonoBehaviour
         buildingState = null;
     }
 
+    public bool IsAllShipsDeployed()
+    {
+        bool result = true;
+        foreach(var ship in shipsList)
+        {
+            if (ship.shipAmount > 0)
+            {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
     //проверки на возможность установить объект и его дальнейшее появление на карте/в матрице
     private void ProceedObjectPlacement()
     {
+        allShipsSeployed?.Invoke(IsAllShipsDeployed());
         /*
         if (inputManager.IsPointerOverUI())
         {
@@ -141,6 +170,7 @@ public class PlacementSystem_new : MonoBehaviour
 
     private void Update()
     {
+        if (!_isActive) return;
         if (buildingState == null)
             return;
         Vector3 mousePosition = inputManager.GetSelectedMousePosition();

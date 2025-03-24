@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 4092686071187586680, guid: e87d10de88698ab4ba633d92f6503d16, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 9afdc660fdd744b4ca9252ceb39ddecf, type: 2}
+      objectReference: {fileID: 2100000, guid: f46f1f96be8bbf0439d725397672470e, type: 2}
     - target: {fileID: 5384841935896654340, guid: e87d10de88698ab4ba633d92f6503d16, type: 3}
       propertyPath: m_Name
       value: ship_unit

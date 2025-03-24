@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ObjectPlacer : MonoBehaviour
 {
+    public bool IsActive { get; set; } = true;
+
     [SerializeField]
     private Dictionary<Vector2, GameObject> objects = new ();
     [SerializeField]
@@ -14,6 +16,8 @@ public class ObjectPlacer : MonoBehaviour
         Vector3 position, 
         float rotation)
     {
+        if (!IsActive) return;
+
         GameObject newTile = Instantiate(gameObject, position, Quaternion.Euler(0, rotation, 0), transform);
         foreach (var pos in coordinate)
         {
@@ -25,11 +29,13 @@ public class ObjectPlacer : MonoBehaviour
         Vector3 position,
         float rotation)
     {
+        if (!IsActive) return;
         GameObject newTile = Instantiate(gameObject, position, Quaternion.Euler(0, rotation, 0), transform);
         Place(pos, newTile);
     }
     public void Place(Coordinates pos, GameObject gameObject)
     {
+        if (!IsActive) return;
         gameObject.name = $"{gameObject.name}: [{pos.x}; {pos.z}]";
         objects.Add(new Vector2(pos.x, pos.z), gameObject);
         placer.Add(new Vector2(pos.x, pos.z));
@@ -37,6 +43,7 @@ public class ObjectPlacer : MonoBehaviour
 
     public void RemoveFromGrid(List<Coordinates> tilePos)
     {
+        if (!IsActive) return;
         if (tilePos == null)
             return;
         foreach (Coordinates gridPos in tilePos)

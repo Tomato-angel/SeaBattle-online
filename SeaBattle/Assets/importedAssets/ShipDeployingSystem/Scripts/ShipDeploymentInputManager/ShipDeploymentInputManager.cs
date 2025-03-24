@@ -13,11 +13,10 @@ public class ShipDeploymentInputManager : MonoBehaviour
     [SerializeField]
     private LayerMask _layerMask;
 
-    
+
 
     #region [Режим активности менеджера]
-    private bool _isActive = true;
-    public bool IsActive => _isActive;
+    private bool _isActive;
     public void SetActive(bool isActive)
     {
         _isActive = isActive;
@@ -32,6 +31,7 @@ public class ShipDeploymentInputManager : MonoBehaviour
     [SerializeField] private string _mouseState = "none";
     public void CatchingInput()
     {
+        //if (!IsInteractable) return;
         if (!_isActive) return;
 
         _currentMousePosition = Input.mousePosition;
@@ -67,7 +67,7 @@ public class ShipDeploymentInputManager : MonoBehaviour
 
     private void Start()
     {
-        
+        _sceneCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     public void Update()

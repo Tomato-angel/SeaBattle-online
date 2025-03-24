@@ -1,21 +1,72 @@
 using DI;
 using Mirror;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameplaySceneManager : NetworkBehaviour
+public class GameplaySceneManager : MonoBehaviour, IInitializable
 {
-    private DIContainer _gameplayServices;
- 
-    void Start()
+    [SerializeField] Player _localPlayer;
+    [SerializeField] Player _opponentPlayer;
+
+    [SerializeField] GameplayManager _gameplayManager;
+
+    [SerializeField] Chat _chat;
+    [SerializeField] CameraViewController _cameraViewController;
+    [SerializeField] OpponentGamingField _opponentGamingField;
+    [SerializeField] ShipsDeploymentSystem _shipDeploymentSystem;
+
+
+    public void Initialize()
     {
-        // __Init__
+        if(ProjectManager.root != null)
+        {
+            _localPlayer = ProjectManager.root.LocalPlayer;
+            _opponentPlayer = _localPlayer.GetAnotherPlayerFromLocalScene();
+
+            _opponentGamingField.SetOpponentPlayer(_opponentPlayer);
+        }
+        else
         {
 
         }
+        StartDeployShip();
     }
 
-    void Update()
+    public void StartDeployShip()
     {
-        
+        _cameraViewController.ToBoardViewPoint();
+        _cameraViewController.IsMovable = false;
+        _cameraViewController.IsRotatable = false;
+        _cameraViewController.SetActive(false);
+
+        _shipDeploymentSystem.SetActive(true);
+        _shipDeploymentSystem.allShipsDeployed += ShowCompleteDeployShipButton;
+
+        ShowCompleteDeployShipButton(false);
     }
+    public void CompleteDeployShip()
+    {
+        _cameraViewController.ToMainViewPoint();
+        _cameraViewController.IsMovable = true;
+        _cameraViewController.IsRotatable = true;
+        _cameraViewController.SetActive(true);
+
+        _shipDeploymentSystem.SetActive(false);
+        _shipDeploymentSystem.allShipsDeployed -= ShowCompleteDeployShipButton;
+
+        ShowCompleteDeployShipButton(false);
+
+        GameplayData gameplayData = _shipDeploymentSystem.GetGameplayData();
+        Debug.Log(gameplayData.ToString());
+        _gameplayManager.SetGameplayData(gameplayData);
+    }
+
+    [SerializeField] GameObject _completeDeployShipButton;
+    public void ShowCompleteDeployShipButton(bool isShow)
+    {
+        if (_completeDeployShipButton == null) return;
+        _completeDeployShipButton.SetActive(isShow);
+    }
+
+
 }

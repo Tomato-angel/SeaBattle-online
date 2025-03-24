@@ -8,21 +8,7 @@ using System.Text.RegularExpressions;
 /// </summary>
 public class ChatService
 {
-    
-    /* Устаревший синглтон за счёт DIContainer
-    #region [ Реализация синглтона ]
-    static private ChatService _instance;
-    static public ChatService Instance
-    {
-        get
-        {
-            if (_instance == null) _instance = new ChatService();
-            return _instance;
-        }
-    }
-    #endregion
-    */
-    
+    public event Action newMessageInChat;
 
     private ChatData _chatData;
     
@@ -30,9 +16,10 @@ public class ChatService
     [TargetRpc]
     public void TargetGetMessage(NetworkConnectionToClient target, Message message)
     {
+        Debug.Log($"New message in chat: {message}");
         _chatData.Push(message);
     }
-
+    /*
     [Command]
     public void CmdSendMessage(Player target, Message message)
     {
@@ -40,7 +27,18 @@ public class ChatService
 
         NetworkIdentity opponentIdentity = target.NetworkIdentity;
         TargetGetMessage(opponentIdentity.connectionToClient, message);
+    }*/
+    [Command]
+    public void CmdSendMessage(Player sender, Message message)
+    {
+        sender.CurrentMatch.GetAnotherPlayers(sender, out Player[] anotherPlayers);
+        
+        foreach(var anotherPlayer in anotherPlayers)
+        {
+            TargetGetMessage(anotherPlayer.connectionToClient, message);
+        }
     }
+
 
     [Client]
     public void StartChat()

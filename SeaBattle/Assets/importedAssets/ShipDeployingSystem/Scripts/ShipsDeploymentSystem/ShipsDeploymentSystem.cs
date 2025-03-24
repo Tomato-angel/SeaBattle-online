@@ -3,20 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class ShipsDeploymentSystem : MonoBehaviour
+public class ShipsDeploymentSystem : MonoBehaviour, IInitializable
 {
     [SerializeField] PlacementSystem_new _placementSystem_New;
-    [field: SerializeField] int[,] _binaryTilesData;
-    [field: SerializeField] TileGameplayData[,] _tilesData;
-    [field: SerializeField] Dictionary<int, ShipGameplayData> _shipsDatabase;
-    public void GetGameplayData()
+
+    private bool _isActive;
+    public void SetActive(bool isActive)
     {
-        _binaryTilesData = _placementSystem_New.GetBinaryTilesGameplayData();
-        _tilesData = _placementSystem_New.GetTilesGameplayData();
-        _shipsDatabase = _placementSystem_New.GetInstalledShips();
+        _isActive = isActive;
+        _placementSystem_New.SetActive(isActive);
     }
+
+    public event Action<bool> allShipsDeployed;
+    public void OnAllShipsDeployed(bool isAllShipsDeployed)
+    {
+        allShipsDeployed?.Invoke(isAllShipsDeployed);
+    }
+
+    public void Initialize()
+    {
+        _placementSystem_New.allShipsSeployed += OnAllShipsDeployed;
+    }
+
+    public GameplayData GetGameplayData()
+    {
+        GameplayData gameplayData = new GameplayData(
+            binaryTilesData: _placementSystem_New.GetBinaryTilesGameplayData(),
+            tilesData: _placementSystem_New.GetTilesGameplayData(),
+            shipsDatabase: _placementSystem_New.GetInstalledShips()
+            );
+
+        return gameplayData;
+    }    
 }
 

@@ -1,10 +1,12 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class ChatData
 {
-    private List<Message> _messages;
+    public List<Message> _messages;
 
     public int Count { get => _messages.Count; }
     public Message[] Messages { get => _messages.ToArray(); }
@@ -39,5 +41,5 @@ public class ChatData
         _messages.Clear();
     }
 
-    
+    public ChatData() { }
 }

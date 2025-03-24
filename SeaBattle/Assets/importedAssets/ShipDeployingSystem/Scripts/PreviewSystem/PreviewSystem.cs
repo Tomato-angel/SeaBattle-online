@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PreviewSystem : MonoBehaviour
 {
+    public bool IsActive { get; set; } = true;
+
     [SerializeField]
     private float previewOffset = 0.06f;
 
@@ -28,6 +30,7 @@ public class PreviewSystem : MonoBehaviour
 
     public void StartShowingPreview(GameObject prefab, Coordinates size)
     {
+        if (!IsActive) return;
         previewObject = Instantiate(prefab);
         previewObject.name = "previewObject";
         PreparePreview(previewObject);
@@ -41,6 +44,7 @@ public class PreviewSystem : MonoBehaviour
 
     private void PreparePreview(GameObject previewObject)
     {
+        if (!IsActive) return;
         Renderer[] renderers = previewObject.GetComponentsInChildren<Renderer>();
         foreach (Renderer renderer in renderers)
         {
@@ -50,12 +54,14 @@ public class PreviewSystem : MonoBehaviour
 
     public void StopShowingPreview()
     {
+        if (!IsActive) return;
         cellIndicator.SetActive(false);
         Destroy(previewObject);
     }
 
     public void UpdatePosition(Vector3 position, bool validity)
     {
+        if (!IsActive) return;
         if (previewObject != null)
         {
             MovePreview(position);
@@ -67,16 +73,19 @@ public class PreviewSystem : MonoBehaviour
 
     private void MoveCursor(Vector3 position)
     {
+        if (!IsActive) return;
         cellIndicator.transform.position = position;
     }
 
     private void MovePreview(Vector3 position)
     {
+        if (!IsActive) return;
         previewObject.transform.position = new Vector3(
             position.x, previewOffset, position.z);
     }
     public void RotatePreview(bool validity)
     {
+        if (!IsActive) return;
         if (previewObject == null)
             return;
 
@@ -91,6 +100,7 @@ public class PreviewSystem : MonoBehaviour
 
     private void ApplyFeedbackCursor(bool validity)
     {
+        if (!IsActive) return;
         Color c = validity ? Color.white : Color.red;
         c.a = 0.5f;
 
@@ -98,6 +108,7 @@ public class PreviewSystem : MonoBehaviour
     }
     private void ApplyFeedbackPreview(bool validity)
     {
+        if (!IsActive) return;
         Color c = validity ? Color.white : Color.red;
         c.a = 0.5f;
         
@@ -106,6 +117,7 @@ public class PreviewSystem : MonoBehaviour
 
     internal void StartShowingPreview()
     {
+        if (!IsActive) return;
         cellIndicator.SetActive(true);
     }
 }

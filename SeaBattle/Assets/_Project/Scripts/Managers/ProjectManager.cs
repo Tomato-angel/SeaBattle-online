@@ -35,7 +35,7 @@ public class ProjectManager : NetworkBehaviour, IInitializable
     [field: SerializeField] public static ProjectManager root 
     { get; private set; }
 
-    private DIContainer _projectServices;
+    [SerializeField] private DIContainer _projectServices;
     public DIContainer ProjectServices 
     { get => _projectServices; }
 
@@ -73,10 +73,12 @@ public class ProjectManager : NetworkBehaviour, IInitializable
     public void GeneralInitialize()
     {
         Debug.Log("[ProjectManager] <b>GENERAL</b> initialize");
+        
 
         root = this;
         _projectServices = new DIContainer();
         _projectServices.RegisterSingleton((_) => new JsonToFileStorageService());
+        _projectServices.RegisterSingleton((_) => new ChatService());
 
         IsInitialized = true;
         DontDestroyOnLoad(gameObject);
@@ -84,6 +86,7 @@ public class ProjectManager : NetworkBehaviour, IInitializable
     public void ClientInitialize()
     {
         Debug.Log("[ProjectManager] <b>CLIENT</b> initialize");
+        
         _projectServices.RegisterSingleton((_) => new SceneLoadService());
 
         EventBus.playerConnectedToGame += AddLocalPlayer;

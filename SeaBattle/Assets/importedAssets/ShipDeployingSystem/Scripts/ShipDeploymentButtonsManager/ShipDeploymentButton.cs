@@ -9,10 +9,11 @@ using UnityEngine.Events;
 
 public class ShipDeploymentButton : MonoBehaviour
 {
-    [SerializeField] public bool interactable { get; set; } = true;
+    [SerializeField] public bool IsInteractable { get; set; } = true;
 
-    [SerializeField] TextMeshPro _shipsCountTextField;
-    public TextMeshPro ShipsCountTextField { get => _shipsCountTextField; }
+
+    [SerializeField] TextMeshProUGUI _shipsCountTextField;
+    public TextMeshProUGUI ShipsCountTextField { get => _shipsCountTextField; }
     [SerializeField] GameObject _pushingElement;
 
     [SerializeField] Vector3 _pushingElementNormalScale = new Vector3(1,1,1);
@@ -51,7 +52,7 @@ public class ShipDeploymentButton : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (!interactable) return;
+        if (!IsInteractable) return;
 
         StopAllCoroutines();
         _onClick?.Invoke();

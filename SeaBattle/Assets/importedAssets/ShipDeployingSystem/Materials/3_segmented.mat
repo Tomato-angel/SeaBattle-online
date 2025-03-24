@@ -41,14 +41,18 @@ Material:
   m_Parent: {fileID: 2100000, guid: 9afdc660fdd744b4ca9252ceb39ddecf, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
+  - _ENABLE_FOG_ON_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2225
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
   - TransparentDepthPrepass
@@ -62,12 +66,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _BlendModePreserveSpecular: 1
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _DstBlendAlpha: 0
     - _MetallicRemapMax: 0
     - _SrcBlend: 1
     - _Surface: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 0.5087232, b: 0, a: 1}
     - _Color: {r: 1, g: 0.50872314, b: 0, a: 1}

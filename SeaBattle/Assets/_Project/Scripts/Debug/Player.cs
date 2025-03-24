@@ -16,6 +16,7 @@ using System.Runtime.CompilerServices;
 [Serializable]
 public class Player : NetworkBehaviour, IInitializable
 {
+    [Header("Basic and Network Parameters of the Current Player")]
     [SyncVar]
     public PlayerData playerData;
     [Command]
@@ -27,6 +28,7 @@ public class Player : NetworkBehaviour, IInitializable
 
     [field: SerializeField] public NetworkMatch NetworkMatch { get; private set; }
     [field: SerializeField] public NetworkIdentity NetworkIdentity { get; private set; }
+    
 
     #region [ Initialization ]
     public void GeneralInitialize()
@@ -103,6 +105,8 @@ public class Player : NetworkBehaviour, IInitializable
     public event Action leaveGame;
     public event Action updateProperties;
 
+    [Space]
+    [Header("Current Player Matchmaking Options")]
     [SyncVar]
     public bool isHost = false;
 
@@ -351,6 +355,18 @@ public class Player : NetworkBehaviour, IInitializable
         return result;
     }
     [Client]
+    public Player GetAnotherPlayerFromLocalScene()
+    {
+        foreach (Player player in GetPlayersFromLocalScene())
+        { 
+            if(player != this)
+            {
+                return player;
+            }
+        }
+        return null;
+    }
+    [Client]
     public Player[] GetPlayersFromLocalScene()
     {
         GameObject[] playersObj = GameObject.FindGameObjectsWithTag("Player");
@@ -386,7 +402,42 @@ public class Player : NetworkBehaviour, IInitializable
     }
     #endregion
 
+    #region [ Chat ]
+    [SyncVar]
+    [SerializeField] ChatData _currentChatData;
+    public ChatData CurrentChatData => _currentChatData;
+    public event Action<Message> newMessageInChat;
+    public event Action updateCurrentChatData;
 
+    public void ClearChatData()
+    {
+        _currentChatData.Clear();
+        TargetNotifyPlayerAboutUpdateChatData();
+    }
+
+    [Command]
+    public void CmdSendMessageInChat(string text)
+    {
+        Message message = new Message(playerData.nickName, text);
+        _currentChatData.Push(message);
+        foreach (var player in _currentMatch.GetPlayers())
+        {
+            TargetNotifyPlayerAboutNewMessageInChat(message);
+        }
+    }
+    [TargetRpc]
+    public void TargetNotifyPlayerAboutUpdateChatData()
+    {
+        updateCurrentChatData?.Invoke();
+    }
+    [TargetRpc]
+    public void TargetNotifyPlayerAboutNewMessageInChat(Message message)
+    {
+        newMessageInChat?.Invoke(message);
+        updateCurrentChatData?.Invoke();
+    }
+
+    #endregion
 
     public void Awake()
     {

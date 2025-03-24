@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Editor\GridPlacerEditor.cs" />
     <Compile Include="Assets\Editor\ProjectHelper.cs" />
   </ItemGroup>
   <ItemGroup>
