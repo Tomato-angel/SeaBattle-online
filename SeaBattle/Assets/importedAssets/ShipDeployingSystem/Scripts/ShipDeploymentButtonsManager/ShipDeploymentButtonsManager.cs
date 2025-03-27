@@ -18,8 +18,8 @@ public class ShipDeploymentButtonsManager : MonoBehaviour
     #endregion
     public void CheckForAmount(List<Ship> shipsList)
     {
-        if (!_isActive) return;
-        if (shipsList == null) return;
+        //if (!_isActive) return;
+        //if (shipsList == null) return;
         for (int id = 1; id < shipsList.Count; id++)
         {
             if (shipsList[id].shipAmount > 0)
@@ -43,7 +43,6 @@ public class ShipDeploymentButtonsManager : MonoBehaviour
 
     public void PrepareButtons(List<Ship> ships)
     {
-        if (!_isActive) return;
         CheckForAmount(ships);
     }
 }

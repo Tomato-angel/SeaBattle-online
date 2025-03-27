@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-
+[Serializable]
 public class GameplayData
 {
-    [field: SerializeField] int[,] _binaryTilesData;
-    [field: SerializeField] TileGameplayData[,] _tilesData;
-    [field: SerializeField] Dictionary<int, ShipGameplayData> _shipsDatabase;
+    [field: SerializeField] public int[,] _binaryTilesData;
+    public int[,] BinaryTilesData => _binaryTilesData;
+    [field: SerializeField] public TileGameplayData[,] _tilesData;
+    public TileGameplayData[,] TilesData => _tilesData;
+    [field: SerializeField] public Dictionary<int, ShipGameplayData> _shipsDatabase;
+    public Dictionary<int, ShipGameplayData> ShipsDatabase => _shipsDatabase;
 
 
     public override string ToString()

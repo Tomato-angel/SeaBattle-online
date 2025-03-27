@@ -4,10 +4,10 @@ using UnityEngine;
 using Scripts.Matchmaking;
 using System.Threading.Tasks;
 using System;
-using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
-using Mirror.BouncyCastle.Asn1.X509;
-using System.Runtime.CompilerServices;
+using System.Collections.Generic;
+using System.Linq;
+
 
 
 
@@ -16,7 +16,8 @@ using System.Runtime.CompilerServices;
 [Serializable]
 public class Player : NetworkBehaviour, IInitializable
 {
-    [Header("Basic and Network Parameters of the Current Player")]
+    [Header("----------------------------------------------------------------------------------------------" + 
+        "\nBasic and Network Parameters of the Current Player\n")]
     [SyncVar]
     public PlayerData playerData;
     [Command]
@@ -106,7 +107,8 @@ public class Player : NetworkBehaviour, IInitializable
     public event Action updateProperties;
 
     [Space]
-    [Header("Current Player Matchmaking Options")]
+    [Header("\n----------------------------------------------------------------------------------------------" + 
+        "\nCurrent Player Matchmaking Options\n")]
     [SyncVar]
     public bool isHost = false;
 
@@ -403,27 +405,44 @@ public class Player : NetworkBehaviour, IInitializable
     #endregion
 
     #region [ Chat ]
+    [Space]
+    [Header("\n----------------------------------------------------------------------------------------------" + 
+        "\nCurrent Player Chat Options")]
     [SyncVar]
-    [SerializeField] ChatData _currentChatData;
+    [SerializeField] public ChatData _currentChatData;
     public ChatData CurrentChatData => _currentChatData;
     public event Action<Message> newMessageInChat;
     public event Action updateCurrentChatData;
 
-    public void ClearChatData()
+    [Command]
+    public void CmdClearChatData()
     {
-        _currentChatData.Clear();
-        TargetNotifyPlayerAboutUpdateChatData();
+        foreach (var player in _currentMatch.GetPlayers())
+        {
+            //_currentChatData.Push(message);
+            player._currentChatData.Clear();
+            player.TargetSetChatData(player._currentChatData);
+            player.TargetNotifyPlayerAboutUpdateChatData();
+        }
     }
 
     [Command]
     public void CmdSendMessageInChat(string text)
     {
         Message message = new Message(playerData.nickName, text);
-        _currentChatData.Push(message);
+        
         foreach (var player in _currentMatch.GetPlayers())
-        {
-            TargetNotifyPlayerAboutNewMessageInChat(message);
+        { 
+            //_currentChatData.Push(message);
+            player._currentChatData.Push(message);
+            player.TargetSetChatData(player._currentChatData);
+            player.TargetNotifyPlayerAboutNewMessageInChat(message);
         }
+    }
+    [TargetRpc]
+    public void TargetSetChatData(ChatData chatData)
+    {
+        _currentChatData = chatData;
     }
     [TargetRpc]
     public void TargetNotifyPlayerAboutUpdateChatData()
@@ -433,10 +452,547 @@ public class Player : NetworkBehaviour, IInitializable
     [TargetRpc]
     public void TargetNotifyPlayerAboutNewMessageInChat(Message message)
     {
+        Debug.Log($"[Player] New message with text {message._text} sended to Chat");
         newMessageInChat?.Invoke(message);
         updateCurrentChatData?.Invoke();
     }
 
+
+
+    #endregion
+
+    #region [ Gameplay ]
+    [Command]
+    public void CmdPrepareForStartGameplay()
+    {
+        Debug.Log($"[Player] Prepare to Gameplay");
+        money = 10;
+        SimpleShoot simpleShoot = new SimpleShoot();
+        _currentAbility = simpleShoot;
+        abilities.Add(simpleShoot);
+
+        /*
+        TargetNotifyAboutPlayerBuyAbility();
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        opponentPlayer.TargetNotifyAboutOpponentBuyAbility();
+        */
+
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+
+        opponentPlayer.TargetForceSetPlayerAbilities(opponentPlayer.abilities);
+        opponentPlayer.TargetForceSetOpponentAbilities(abilities);
+        opponentPlayer.TargetNotifyAboutOpponentBuyAbility();
+
+
+        TargetForceSetPlayerAbilities(abilities);
+        TargetForceSetOpponentAbilities(opponentPlayer.abilities);
+        TargetNotifyAboutPlayerBuyAbility();
+    }
+
+    [Space]
+    [Header("\n----------------------------------------------------------------------------------------------" + 
+        "\nCurrent Player Gameplay Options\n")]
+    public List<TileGameplayData> currentTilesGameplayData = new();
+    public bool IsAllOpponentShipsAreDeployed = false;
+    public event Action allOpponentShipsAreDeployed;
+    public event Action allShipsAreDeployed;
+    [Command]
+    public void CmdSetTilesGameplayData(List<TileGameplayData> tilesGameplayData)
+    {
+        currentTilesGameplayData = tilesGameplayData;
+        GenerateShipsDatabaseByTiles(tilesGameplayData);
+
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        allShipsAreDeployed?.Invoke();
+        opponentPlayer.TargetNotifyAboutAllOpponentShipsAreDeployed();  
+        opponentPlayer.IsAllOpponentShipsAreDeployed = true;  
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutAllOpponentShipsAreDeployed()
+    {
+        IsAllOpponentShipsAreDeployed = true;
+        allOpponentShipsAreDeployed?.Invoke();
+    }
+
+    public Dictionary<int, ShipGameplayData> _shipsDatabase;
+    [Server]
+    public void GenerateShipsDatabaseByTiles(List<TileGameplayData> tilesGameplayData)
+    {
+        _shipsDatabase = new Dictionary<int, ShipGameplayData>();
+        foreach (var tileGameplayData in tilesGameplayData)
+        {
+            if(tileGameplayData.status == TileGameplayStatus.shipCell || tileGameplayData.status == TileGameplayStatus.EmptyCellNextToShip)
+            {
+                if(_shipsDatabase.ContainsKey(tileGameplayData.PlacedObjectID))
+                {
+                    _shipsDatabase[tileGameplayData.PlacedObjectID].Coordinates.Add(tileGameplayData.Coordinate);
+                }
+                else
+                {
+                    _shipsDatabase.Add(tileGameplayData.PlacedObjectID, new ShipGameplayData(tileGameplayData.ID, new List<Coordinates>()));
+                }
+            }
+        }
+    }
+
+
+    public event Action<List<TileGameplayData>> attackOpponent;
+    public event Action<List<TileGameplayData>> getAttackFromOpponent;
+    //
+    [Server]
+    public void CmdAttackOpponent(Coordinates[] targetCoordinates)
+    {
+        Debug.Log($"[Player] {connectionToClient.connectionId} attack his opponent on coordinates {targetCoordinates.ToString()}");
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        HashSet<TileGameplayData> responseTileGameplayData = new();
+
+        string s = "";
+        foreach (var element in targetCoordinates)
+        {
+            s += element.x + " " + element.z + "\n";
+        }
+        Debug.Log(s);
+
+        AddMoney(10);
+
+        /*
+        foreach (var targetCoordinate in targetCoordinates)
+        {
+            foreach (var tileGameplayData in _tilesGameplayData)
+            {
+                if (tileGameplayData.Coordinate == targetCoordinate)
+                {
+                    if(tileGameplayData.status == TileGameplayStatus.shipCell)
+                    {
+                        int placedObjID = tileGameplayData.PlacedObjectID;
+
+                        if (_shipsGameplayData[placedObjID].Health == 0)
+                            continue;
+
+                        _shipsGameplayData[placedObjID].Health -= 1;
+                        if(_shipsGameplayData[placedObjID].Health <= 0)
+                        {
+                            foreach(var nextToShipTileCoordinate in _shipsGameplayData[placedObjID].Coordinates)
+                            {
+                                foreach(var nextToShipTileGameplayData in _tilesGameplayData)
+                                {
+                                    if(nextToShipTileGameplayData.Coordinate == nextToShipTileCoordinate)
+                                    {
+                                        responseTileGameplayData.Add(nextToShipTileGameplayData);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            responseTileGameplayData.Add(tileGameplayData);
+                        }
+                    }
+                }
+            }
+        }
+
+        TargetNotifyAboutOpponentGetAttack(responseTileGameplayData.ToList());
+        opponentPlayer.TargetNotifyAboutOpponentAttack(responseTileGameplayData.ToList());
+        */
+
+        // Это для простой проверки работы кода, настоящее составление ответа в комментарии выше
+        foreach (var targetCoordinate in targetCoordinates)
+        {
+            foreach (var tileGameplayData in opponentPlayer.currentTilesGameplayData)
+            {
+                if (tileGameplayData.Coordinate == targetCoordinate)
+                {
+                    responseTileGameplayData.Add(tileGameplayData);
+
+                    if(tileGameplayData.status == TileGameplayStatus.shipCell)
+                    {
+                        AddMoney(10);
+                    }
+                }
+            }
+        }
+
+        s = "";
+        foreach(var element in responseTileGameplayData)
+        {
+            s += element.Coordinate.x + " " + element.Coordinate.z + "\n";
+        }
+        Debug.Log(s);
+
+        TargetNotifyAboutOpponentGetAttack(responseTileGameplayData.ToList());
+        opponentPlayer.TargetNotifyAboutOpponentAttack(responseTileGameplayData.ToList());
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentGetAttack(List<TileGameplayData> tilesGameplayData)
+    {
+        attackOpponent?.Invoke(tilesGameplayData);
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentAttack(List<TileGameplayData> tilesGameplayData)
+    {
+        getAttackFromOpponent?.Invoke(tilesGameplayData);
+    }
+
+
+    public event Action<List<TileGameplayData>> scanOpponent;
+    public event Action<List<TileGameplayData>> getScanFromOpponent;
+    [Server]
+    public void CmdScanOpponent(Coordinates[] targetCoordinates)
+    {
+        Debug.Log($"[Player] {connectionToClient.connectionId} scan his opponent");
+
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        HashSet<TileGameplayData> responseTileGameplayData = new();
+
+        /*
+        foreach (var targetCoordinate in targetCoordinates)
+        {
+            foreach (var tileGameplayData in _tilesGameplayData)
+            {
+                if (tileGameplayData.Coordinate == targetCoordinate)
+                {
+                    if (tileGameplayData.status == TileGameplayStatus.shipCell)
+                    {
+                        int placedObjID = tileGameplayData.PlacedObjectID;
+                        responseTileGameplayData.Add(tileGameplayData);
+                    }
+                }
+            }
+        }*/
+
+        // Это для простой проверки работы кода, настоящее составление ответа в комментарии выше
+        foreach (var targetCoordinate in targetCoordinates)
+        {
+            foreach (var tileGameplayData in opponentPlayer.currentTilesGameplayData)
+            {
+                if (tileGameplayData.Coordinate == targetCoordinate)
+                {
+                    responseTileGameplayData.Add(tileGameplayData);
+                }
+            }
+        }
+
+        TargetNotifyAboutOpponentGetScan(responseTileGameplayData.ToList());
+        opponentPlayer.TargetNotifyAboutOpponentScan(responseTileGameplayData.ToList());
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentGetScan(List<TileGameplayData> tilesGameplayData)
+    {
+        scanOpponent?.Invoke(tilesGameplayData);
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentScan(List<TileGameplayData> tilesGameplayData)
+    {
+        getScanFromOpponent?.Invoke(tilesGameplayData);
+    }
+
+    /*
+    public event Action updateGameplayProperties;
+    public event Action updateOpponentGameplayProperties;
+    [TargetRpc]
+    public void TargetNotifyAboutUpdateGameplayProperties()
+    {
+        updateGameplayProperties?.Invoke();
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentUpdateGameplayProperties()
+    {
+        updateOpponentGameplayProperties?.Invoke();
+    }
+    */
+
+    public event Action youWin;
+    public event Action youLose;
+    [TargetRpc]
+    public void TargetNotifyAboutWin()
+    {
+        youWin?.Invoke();
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutLose()
+    {
+        youLose?.Invoke();
+    }
+
+
+    #endregion
+
+    #region [ Abilities ]
+    [Space]
+    [Header("\n----------------------------------------------------------------------------------------------" +
+        "\nCurrent Player Abilities Options\n")]
+    [SyncVar]
+    public Ability _currentAbility;
+    public Ability CurrentAbility => _currentAbility;
+    public List<Ability> abilities = new();
+    private int _maxAbilityCount = 4;
+    public bool _isPlayerTurn;
+    public bool IsPlayerTurn => _isPlayerTurn;
+    
+    [Command]
+    public void CmdSetCurrentAbility(Ability ability)
+    {
+        Debug.Log($"[Server] Player set new current ability with ID: {ability.ID}");
+        _currentAbility = ability;
+        TargetNotifyAboutSetCurrentAbility(ability);
+    }
+    public event Action<Ability> setCurrentAbility;
+    [TargetRpc]
+    public void TargetNotifyAboutSetCurrentAbility(Ability ability)
+    {
+        setCurrentAbility?.Invoke(ability);
+    }
+    [TargetRpc]
+    public void TargetForceSetPlayerAbilities(List<Ability> newAbilities)
+    {
+        abilities = newAbilities;
+    }
+    [TargetRpc]
+    public void TargetForceSetOpponentAbilities(List<Ability> newAbilities)
+    {
+        Player opponentPlayer = GetAnotherPlayerFromLocalScene();
+        opponentPlayer.abilities = newAbilities;
+    }
+
+    public event Action playerUsedAbility;
+    public event Action opponentUsedAbility;
+    [TargetRpc]
+    public void TargetNotifyAboutPlayerUsedAbility()
+    {
+        playerUsedAbility?.Invoke();
+        _isPlayerTurn = false;
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentUsedAbility() 
+    {
+        opponentUsedAbility?.Invoke();
+        _isPlayerTurn = true;
+    }
+
+
+    [Command]
+    public void CmdUseAbility(Ability ability, Coordinates origin)
+    {
+        Debug.Log($"[Player] Used ability: {ability.GetType().FullName} on origin: X={origin.x} Z={origin.z}");
+
+        if (ability == null) return;
+
+        if (ability.GetType().FullName != new SimpleShoot().GetType().FullName)
+        {
+            if (abilities.Contains(ability))
+            {
+                abilities.Remove(ability);
+            }
+        }
+        
+        List<Coordinates> targetCoordinates = new List<Coordinates>();
+        foreach (var abilityCoordinate in ability.TargetCoordinates)
+        {
+            var calculatedCoordinateX = abilityCoordinate.x + origin.x;
+            var calculatedCoordinateZ = abilityCoordinate.z + origin.z;
+
+            if (calculatedCoordinateX < 10 && calculatedCoordinateX >= 0)
+            {
+                if (calculatedCoordinateZ < 10 && calculatedCoordinateZ >= 0)
+                {
+                    targetCoordinates.Add(new Coordinates(calculatedCoordinateX, calculatedCoordinateZ));
+                }
+            }
+        }
+
+        switch(ability.Type)
+        {
+            case AbilityTypes.Attack:
+                {
+                    CmdAttackOpponent(targetCoordinates.ToArray());
+                    break;
+                }
+            case AbilityTypes.Scan:
+                {
+                    CmdScanOpponent(targetCoordinates.ToArray());
+                    break;
+                }
+        }
+
+        _currentAbility = null;
+
+        
+        
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        opponentPlayer.TargetNotifyAboutOpponentUsedAbility();
+        opponentPlayer.TargetForceSetPlayerAbilities(opponentPlayer.abilities);
+        opponentPlayer.TargetForceSetOpponentAbilities(abilities);
+
+        TargetNotifyAboutPlayerUsedAbility();
+        TargetForceSetPlayerAbilities(abilities);
+        TargetForceSetOpponentAbilities(opponentPlayer.abilities);
+
+    }
+
+    [Command]
+    public void CmdUseAbility(Ability ability, List<Coordinates> targetCoordinates)
+    {
+        Debug.Log($"[Player] Used ability: {ability.GetType().FullName} on range of coordinates {targetCoordinates.ToArray().ToString()}");
+        
+        if (ability == null) return;
+
+        if (ability.ID != 0)
+        {
+            foreach(var targetAbility in abilities)
+            {
+                if(targetAbility.ID == ability.ID)
+                {
+                    abilities.Remove(targetAbility);
+                    break;
+                }
+            }
+        }
+
+        switch (ability.Type)
+        {
+            case AbilityTypes.Attack:
+                {
+                    CmdAttackOpponent(targetCoordinates.ToArray());
+                    break;
+                }
+            case AbilityTypes.Scan:
+                {
+                    CmdScanOpponent(targetCoordinates.ToArray());
+                    break;
+                }
+        }
+        /*
+        TargetNotifyAboutPlayerUsedAbility();
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        opponentPlayer.TargetNotifyAboutOpponentUsedAbility();*/
+
+        _currentAbility = null;
+
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        
+        opponentPlayer.TargetForceSetPlayerAbilities(opponentPlayer.abilities);
+        opponentPlayer.TargetForceSetOpponentAbilities(abilities);
+        opponentPlayer.TargetNotifyAboutOpponentUsedAbility();
+
+        
+        TargetForceSetPlayerAbilities(abilities);
+        TargetForceSetOpponentAbilities(opponentPlayer.abilities);
+        TargetNotifyAboutPlayerUsedAbility();
+    }
+
+    #endregion
+
+    #region [ Shop ]
+    [Space]
+    [Header("\n----------------------------------------------------------------------------------------------" + 
+        "\nCurrent Player Shop Options\n")]
+    [SyncVar]
+    public int money = 0;
+    public int Money => money;
+    [Server]
+    public void AddMoney(int value)
+    {
+        money += value;
+        if (money > 100) money = 100;
+    }
+    [Server]
+    public void SubstractMoney(int value)
+    {
+        money -= value;
+        if (money < 0) money = 0;
+    }
+
+    private Ability[] _abilitiesInShop = new Ability[]
+    {
+        new SimpleShoot(),
+        new QuadricShoot(),
+        new LineShoot(),
+        new QuadricScan()
+    };
+
+    public event Action playerBuyAbility;
+    public event Action opponentBuyAbility;
+    [TargetRpc]
+    public void TargetNotifyAboutPlayerBuyAbility()
+    {
+        playerBuyAbility?.Invoke();
+    }
+    [TargetRpc]
+    public void TargetNotifyAboutOpponentBuyAbility()
+    {
+        opponentBuyAbility?.Invoke();
+    }
+    [Command]
+    public void CmdBuyNewAbility() 
+    {
+        var abilityPrice = 25;
+
+        if (money < abilityPrice) return;
+        if (abilities.Count >= _maxAbilityCount) return;
+        
+        int abilityID = UnityEngine.Random.Range(1, _abilitiesInShop.Length);
+        switch(abilityID)
+        {
+            case 0:
+                {
+                    if (abilities.Count < _maxAbilityCount)
+                    {
+                        abilities.Add(new SimpleShoot());
+                    }
+                    break;
+                }
+            case 1:
+                {
+                    if (abilities.Count < _maxAbilityCount)
+                    {
+                        abilities.Add(new QuadricShoot());
+                    }
+                    break;
+                }
+            case 2:
+                {
+                    if (abilities.Count < _maxAbilityCount)
+                    {
+                        abilities.Add(new LineShoot());
+                    }
+                    break;
+                }
+            case 3:
+                {
+                    if (abilities.Count < _maxAbilityCount)
+                    {
+                        abilities.Add(new QuadricScan());
+                    }
+                    break;
+                }
+        }
+        SubstractMoney(abilityPrice);
+        
+
+        /*
+        TargetNotifyAboutPlayerBuyAbility();
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        opponentPlayer.TargetNotifyAboutOpponentBuyAbility();
+        */
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        
+        opponentPlayer.TargetForceSetPlayerAbilities(opponentPlayer.abilities);
+        opponentPlayer.TargetForceSetOpponentAbilities(abilities);
+        opponentPlayer.TargetNotifyAboutOpponentBuyAbility();
+
+        
+        TargetForceSetPlayerAbilities(abilities);
+        TargetForceSetOpponentAbilities(opponentPlayer.abilities);
+        TargetNotifyAboutPlayerBuyAbility();
+    }
+    #endregion
+
+    #region [ Description ]
+    [Space]
+    [Header("\n----------------------------------------------------------------------------------------------" + 
+        "\nDescription\n")]
+    [SerializeField] string _description;
     #endregion
 
     public void Awake()
@@ -455,7 +1011,7 @@ public class Player : NetworkBehaviour, IInitializable
 
     public async void Update()
     {
-
+        
     }
 
     private void OnDestroy()

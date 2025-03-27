@@ -35,6 +35,7 @@ public class OpponentGamingSegment : MonoBehaviour, IPointerDownHandler, IPointe
 
 
     [SerializeField] Image _segmentView;
+
     [SerializeField] Image _interactView;
     [SerializeField] OpponentGamingSegmentStatus _currentStatus = OpponentGamingSegmentStatus.Default;
     [SerializeField] GamingSegmentSpritesDatabase _spritesDatabase;
@@ -44,7 +45,22 @@ public class OpponentGamingSegment : MonoBehaviour, IPointerDownHandler, IPointe
         _segmentView.sprite = _spritesDatabase.Get(status);
         if(_currentStatus > OpponentGamingSegmentStatus.Checked)
             IsInteractable = false;
+    }
 
+    public void SetInteractNormal()
+    {
+        _interactView.gameObject.SetActive(false);
+        _interactView.color = Color.white;
+    }
+    public void SetInteractHover()
+    {
+        _interactView.gameObject.SetActive(true);
+        _interactView.color = Color.green;
+    }
+    public void SetInteractPush()
+    {
+        _interactView.gameObject.SetActive(true);
+        _interactView.color = Color.cyan;
     }
 
     [Space]
@@ -63,44 +79,24 @@ public class OpponentGamingSegment : MonoBehaviour, IPointerDownHandler, IPointe
     {
         //if (!IsInteractable) return;
         //if (!IsInitialized) return;
-
-        if(_currentStatus <= OpponentGamingSegmentStatus.Checked)
-        {
-            _interactView.gameObject.SetActive(true);
-            _interactView.color = Color.blue;
-        }
-   
         onDown?.Invoke();
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         //if (!IsInteractable) return;
         //if (!IsInitialized) return;
-
-
-        _interactView.gameObject.SetActive(false);
-        _interactView.color = Color.white;
-
         onUp?.Invoke();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         //if (!IsInteractable) return;
         //if (!IsInitialized) return;
-
-        _interactView.gameObject.SetActive(true);
-        _interactView.color = Color.green;
-
         onEnter?.Invoke();
     }
     public void OnPointerExit(PointerEventData eventData)
     {
         //if (!IsInteractable) return;
         //if (!IsInitialized) return;
-
-        _interactView.gameObject.SetActive(false);
-        _interactView.color = Color.white;
-
         onExit?.Invoke();
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public enum TileGameplayStatus
 {
@@ -15,19 +16,24 @@ public enum TileGameplayStatus
     EmptyCellNextToShip,
     DamagedEmptyCellNextToShip
 }
+[Serializable]
 public class TileGameplayData
 {
     //координата выстрела
-    public Coordinates Coordinate { get; set; }
+    [SerializeField]
+    public Coordinates Coordinate;
 
     //ID корабля (например: того, что состоит из 2х сегментов)
-    public int ID { get; set; }
+    [SerializeField]
+    public int ID;
 
     //ID выставленного на той ячейке корабля
-    public int PlacedObjectID { get; set; }
+    [SerializeField]
+    public int PlacedObjectID;
 
     //состояние 
-    public TileGameplayStatus status { get; set; }
+    [SerializeField]
+    public TileGameplayStatus status;
 
     public TileGameplayData(
         Coordinates coordinates, 
@@ -40,4 +46,6 @@ public class TileGameplayData
         PlacedObjectID = placedObjectID;
         status = tileGameplayStatus;
     }
+
+    public TileGameplayData() { }
 }

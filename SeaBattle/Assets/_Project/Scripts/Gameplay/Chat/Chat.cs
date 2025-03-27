@@ -17,6 +17,7 @@ public class Chat : MonoBehaviour, IInitializable
 
     public void Initialize()
     {
+        if (ProjectManager.root == null) return;
         _localPlayer = ProjectManager.root.LocalPlayer;
         _localPlayer.newMessageInChat += GetMessage;
         _localPlayer.updateCurrentChatData += RedrawChat;

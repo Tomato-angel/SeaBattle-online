@@ -1,5 +1,6 @@
 using DI;
 using Mirror;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ public class GameplaySceneManager : MonoBehaviour, IInitializable
         if(ProjectManager.root != null)
         {
             _localPlayer = ProjectManager.root.LocalPlayer;
+            _localPlayer.CmdPrepareForStartGameplay();
+
             _opponentPlayer = _localPlayer.GetAnotherPlayerFromLocalScene();
 
             _opponentGamingField.SetOpponentPlayer(_opponentPlayer);
@@ -56,9 +59,20 @@ public class GameplaySceneManager : MonoBehaviour, IInitializable
 
         ShowCompleteDeployShipButton(false);
 
+
         GameplayData gameplayData = _shipDeploymentSystem.GetGameplayData();
+
         Debug.Log(gameplayData.ToString());
-        _gameplayManager.SetGameplayData(gameplayData);
+        //_gameplayManager.SetGameplayData(gameplayData);
+        List<TileGameplayData> tilesGameplayData = new();
+        for(int i = 0; i < 10; ++i)
+        {
+            for(int j = 0; j < 10; ++j)
+            {
+                tilesGameplayData.Add(gameplayData.TilesData[i,j]);
+            }
+        }
+        _localPlayer.CmdSetTilesGameplayData(tilesGameplayData);
     }
 
     [SerializeField] GameObject _completeDeployShipButton;

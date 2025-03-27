@@ -10,6 +10,7 @@ using UnityEngine;
 public class GridPlacer : MonoBehaviour
 {
     [SerializeField] List<GameObject> _tiles;
+    public List<GameObject> Tiles => _tiles;
 
     [SerializeField] private int _xCoordinates;
     [SerializeField] private int _zCoordinates;
@@ -21,7 +22,7 @@ public class GridPlacer : MonoBehaviour
         {
             for (int z = 0; z < _zCoordinates; z++)
             {
-                Vector3 tilePos = new Vector3(transform.position.x + x, 0, transform.position.z - z);
+                Vector3 tilePos = new Vector3(transform.position.x + x, transform.position.y, transform.position.z - z);
                 var tile = Instantiate(_tilePrefab, tilePos, Quaternion.identity, transform);
                 tile.name = $"Tile {x}; {z}";
 

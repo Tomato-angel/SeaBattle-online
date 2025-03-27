@@ -14,5 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gamingSegmentSprites:
   - _status: 0
-    _key: 
-    _sprite: {fileID: 0}
+    _key: Default
+    _sprite: {fileID: 21300000, guid: 0f07c3af70e770945be853b120b097d0, type: 3}
+  - _status: 1
+    _key: Checked
+    _sprite: {fileID: 21300000, guid: e61e3487561db49448f8af27bc4c558c, type: 3}
+  - _status: 2
+    _key: Missed
+    _sprite: {fileID: 21300000, guid: 67fc97c2a27f8df459fb422cb46661b4, type: 3}
+  - _status: 3
+    _key: Hit
+    _sprite: {fileID: 21300000, guid: 8ade14df8d11efa4d99568840baadf9d, type: 3}

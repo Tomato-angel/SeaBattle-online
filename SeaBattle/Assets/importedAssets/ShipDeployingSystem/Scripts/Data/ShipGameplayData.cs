@@ -11,6 +11,12 @@ public class ShipGameplayData
     public int Health { get; set; }
     public List<Coordinates> Coordinates { get; set; }
 
+    public ShipGameplayData()
+    {
+        ID = 0;
+        Health = 0;
+        Coordinates = new();
+    }
 
     public ShipGameplayData(int id, List<Coordinates> coordinates) 
     {

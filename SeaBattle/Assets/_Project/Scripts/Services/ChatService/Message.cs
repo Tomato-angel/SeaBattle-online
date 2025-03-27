@@ -8,14 +8,14 @@ using UnityEngine;
 [Serializable]
 public class Message
 {
-    [SerializeField] private DateTime _time;
+    private DateTime _time;
     public DateTime GetLocalTime { get => _time.ToLocalTime(); }
     public DateTime GetUTCTime { get => _time; }
 
-    [SerializeField] private string _senderNickname;
+    [SerializeField] public string _senderNickname;
     public string SenderNickname { get => _senderNickname; }
 
-    [SerializeField] private string _text;
+    [SerializeField] public string _text;
     public string Text { get => _text; }
 
     public override string ToString() 

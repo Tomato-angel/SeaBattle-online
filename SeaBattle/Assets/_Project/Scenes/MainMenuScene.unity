@@ -2520,7 +2520,7 @@ MonoBehaviour:
   priority: 1
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 37f5974c98120814eb1717e6680644d3, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 62f6dba0f3e841f47b064b962b73de37, type: 2}
 --- !u!1 &790984354
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,7 +2901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

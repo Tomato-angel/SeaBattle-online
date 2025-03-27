@@ -94,5 +94,8 @@ MonoBehaviour:
     Key: 
     _players: []
   _isReady: 0
-  _currentMatchChatData:
+  _currentChatData:
     _messages: []
+  abilities: []
+  money: 10
+  _description: 

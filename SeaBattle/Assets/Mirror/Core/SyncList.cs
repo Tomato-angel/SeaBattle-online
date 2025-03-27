@@ -338,11 +338,12 @@ namespace Mirror
             return -1;
         }
 
-        public T Find(Predicate<T> match)
+        /*
+        public T FindIndex(Predicate<T> match)
         {
             int i = FindIndex(match);
             return (i != -1) ? objects[i] : default;
-        }
+        }*/
 
         public List<T> FindAll(Predicate<T> match)
         {
@@ -417,6 +418,11 @@ namespace Mirror
         IEnumerator<T> IEnumerable<T>.GetEnumerator() => new Enumerator(this);
 
         IEnumerator IEnumerable.GetEnumerator() => new Enumerator(this);
+
+        public int Find()
+        {
+            throw new NotImplementedException();
+        }
 
         // default Enumerator allocates. we need a custom struct Enumerator to
         // not allocate on the heap.

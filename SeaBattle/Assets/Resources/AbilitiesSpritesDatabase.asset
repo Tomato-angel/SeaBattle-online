@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1868b0e06e4ef4349b9787dec5a58b03, type: 3}
+  m_Name: AbilitiesSpritesDatabase
+  m_EditorClassIdentifier: 
+  _abilitiesSprites:
+  - _abilityID: 0
+    _abilitySprite: {fileID: 21300000, guid: 8b9cf52dcd5d42c40816562cfa462f5b, type: 3}
+  - _abilityID: 1
+    _abilitySprite: {fileID: 21300000, guid: 74d6a52912efa46488568f2c88c11223, type: 3}
+  - _abilityID: 2
+    _abilitySprite: {fileID: 21300000, guid: 1084025d83c17234d8c608fb28f78421, type: 3}
+  - _abilityID: 3
+    _abilitySprite: {fileID: 21300000, guid: 96953058daaf63a4aa04f59f24bede63, type: 3}

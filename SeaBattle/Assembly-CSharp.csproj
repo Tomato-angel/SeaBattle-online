@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Project\Scripts\Gameplay\ViewController\CameraViewController.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\MainMenu\GameplayMenu\AbilitySlots\AbilitySlot.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ProjectBootstrap.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\Data\TileData.cs" />
     <Compile Include="Assets\_Project\Scripts\SimpleSolutions\InfinityLoadPanel.cs" />
@@ -96,13 +97,16 @@
     <Compile Include="Assets\_Project\Scripts\SimpleSolutions\CursorLauncher.cs" />
     <Compile Include="Assets\_Project\Scripts\_\NotifyService\INotify.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ChatService\ChatData.cs" />
+    <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\GridDamager\GridDamager.cs" />
     <Compile Include="Assets\_Project\Scripts\Gameplay\ViewController\CameraViewPoint.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\ScriptableObjects\ShipDatabaseSO.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\Shop\Shop.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ChatService\ChatService.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\AdditionalClasses\Coordinates.cs" />
     <Compile Include="Assets\_Project\Scripts\Other\DI\DIRegistration.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ShipDeploymentService\ShipDeploymentField.cs" />
     <Compile Include="Assets\_Project\Scripts\_\IMatchBinding.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\MainMenu\PauseMenu\PauseMenu.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\Data\ShipGameplayData.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\PlacementSystem\States\PlacementState.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ShipDeploymentService\ShipDeploymentSegment.cs" />
@@ -136,14 +140,17 @@
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\ShipDeploymentButtonsManager\ButtonsLogic.cs" />
     <Compile Include="Assets\_Project\Scripts\Services\ChatService\Message.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\MainMenuSceneManager\MainMenuSceneManager.cs" />
+    <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\GridDamager\DamagerTile.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ProjectManager_Server.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\MainMenuSceneManager\MenuPanel.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\_Project\Scripts\Gameplay\GameplayManager.cs" />
     <Compile Include="Assets\_Project\Resources\Text\TextProvider.cs" />
     <Compile Include="Assets\_Project\Scripts\Gameplay\Chat\MessageTextField.cs" />
     <Compile Include="Assets\_Project\Scripts\Bootstraps\Bootstrap.cs" />
     <Compile Include="Assets\_Project\Scripts\_\Callback\CallbackManager.cs" />
     <Compile Include="Assets\_Project\Scripts\Other\DI\DIContainer.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\MainMenu\GameplayMenu\GameplayMenu.cs" />
     <Compile Include="Assets\_Project\Scripts\Gameplay\OpponentGamingField\OpponentGamingSegment.cs" />
     <Compile Include="Assets\_Project\Scripts\Other\FSM\FSM.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\GameSceneManager\GSMMainMenuState.cs" />
@@ -152,11 +159,13 @@
     <Compile Include="Assets\_Project\Scripts\Managers\MainMenuSceneManager\JoinGamePanel.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\RegistrationSceneManager\RegistrationSceneManager.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\GameSceneManager\GSMRegistrationState.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\Abilities\AbilitiesSpritesDatabase.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\ProjectManager.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\ShipDeploymentButtonsManager\ShipDeploymentButtonsManager.cs" />
     <Compile Include="Assets\importedAssets\ShipDeployingSystem\Scripts\PreviewSystem\PreviewSystem.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\MainMenuSceneManager\FindGamePanel.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ProjectManager_Client.cs" />
+    <Compile Include="Assets\_Project\Scripts\Gameplay\Abilities\Abilities.cs" />
     <Compile Include="Assets\_Project\Scripts\Data\MatchData.cs" />
     <Compile Include="Assets\_Project\Scripts\Managers\GameSceneManager\GameSceneManager.cs" />
     <Compile Include="Assets\_Project\Scripts\_\ServiceProvider\ServicesProvider.cs" />
@@ -167,11 +176,13 @@
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Mdb.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile-2-Pass.shader" />
+    <None Include="Assets\_Project\Resources\Sprites\Abilities\Font.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Mirror\Plugins\BouncyCastle\Mirror.BouncyCastle.Cryptography.dll" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Pdb.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\_Project\Resources\Sprites\Abilities\License.txt" />
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.Rocks.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\SDFFunctions.hlsl" />

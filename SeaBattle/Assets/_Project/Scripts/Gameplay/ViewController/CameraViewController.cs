@@ -54,6 +54,7 @@ public class CameraViewController : MonoBehaviour, IInitializable
 
     [SerializeField][Range(0, 10)] float _speed = 1;
 
+    [SerializeField] MainMenu _mainMenu;
 
     private bool CheckChangeViewPointPosition(float deltaPosition = 0.01f)
     {
@@ -108,6 +109,7 @@ public class CameraViewController : MonoBehaviour, IInitializable
                 _lastViewPoint = _currentViewPoint;
                 ChangeViewPoint(_gameplayViewPoint);
                 IsRotatable = false;
+                _mainMenu.ShowGameplayMenu();
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -118,6 +120,7 @@ public class CameraViewController : MonoBehaviour, IInitializable
                 _lastViewPoint = _currentViewPoint;
                 ChangeViewPoint(_shopViewPoint);
                 IsRotatable = false;
+                _mainMenu.ShowGameplayMenu();
             }
         }
 
@@ -130,10 +133,11 @@ public class CameraViewController : MonoBehaviour, IInitializable
                 ChangeViewPoint(_chatViewPoint);
                 IsMovable = false;
                 IsRotatable = false;
+                _mainMenu.HideAllMenu();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.M))
         {
             if (!IsMovable) return;
             if (_currentViewPoint != _boardViewPoint)
@@ -141,18 +145,21 @@ public class CameraViewController : MonoBehaviour, IInitializable
                 _lastViewPoint = _currentViewPoint;
                 ChangeViewPoint(_boardViewPoint);
                 IsRotatable = false;
+                _mainMenu.HideAllMenu();
             }
+            /*
             else if (_currentViewPoint == _boardViewPoint)
             {
                 ChangeViewPoint(_lastViewPoint);
                 IsRotatable = _lastViewPoint == _mainViewPoint;
                 _lastViewPoint = null;
-            }
+            }*/
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             IsMovable = true;
+            /*
             if (_currentViewPoint == _lastViewPoint)
             {
                 ChangeViewPoint(_mainViewPoint);
@@ -164,7 +171,19 @@ public class CameraViewController : MonoBehaviour, IInitializable
                 if (_lastViewPoint == _mainViewPoint)
                     IsRotatable = true;
                 _lastViewPoint = _currentViewPoint;
+            }*/
+
+            if (_currentViewPoint == _mainViewPoint)
+            {
+                _mainMenu.ShowPauseMenu();
             }
+            if (_currentViewPoint != _mainViewPoint)
+            {
+                ChangeViewPoint(_mainViewPoint);
+                IsRotatable = true;
+                _mainMenu.HideAllMenu();
+            }
+            
         }
 
         /*

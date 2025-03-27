@@ -65,11 +65,12 @@ public class PlacementSystem_new : MonoBehaviour
     private void Start()
     {
         ShipsInitialize();
+        buttonLogic.PrepareButtons(shipsList);
 
         StopPlacement();
         gridData = new();
         lastDetectedPosition = new Coordinates(0, 0);
-        buttonLogic.PrepareButtons(shipsList);
+        
     }
 
     //отправная точка процесса расположения
