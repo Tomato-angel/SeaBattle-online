@@ -75,7 +75,7 @@ Material:
     - _ZTestGBuffer: 4
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.9056604, g: 0.36311856, b: 0.66850114, a: 1}
-    - _Color: {r: 0.9056604, g: 0.36311853, b: 0.66850114, a: 1}
+    - _BaseColor: {r: 0.9056604, g: 0.36311853, b: 0.66850114, a: 0.5019608}
+    - _Color: {r: 0.9056604, g: 0.3631185, b: 0.66850114, a: 0.5019608}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

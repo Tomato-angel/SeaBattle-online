@@ -9,8 +9,6 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour, IInitializable
 {
-
-
     public void Initialize()
     {
     }

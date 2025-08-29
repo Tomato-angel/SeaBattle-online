@@ -21,7 +21,7 @@ public class GameplayMenu : MonoBehaviour, IInitializable
 
     [SerializeField] TextMeshProUGUI _abilityDescription;
     [SerializeField] AbilitySlot[] _abilitySlots = new AbilitySlot[4];
-
+    [SerializeField] TextMeshProUGUI _playerMoney;
 
     public void Initialize()
     {
@@ -33,9 +33,11 @@ public class GameplayMenu : MonoBehaviour, IInitializable
 
         UpdateGameplayMenu();
         _localPlayer.playerUsedAbility += UpdateGameplayMenu;
+        //_localPlayer.opponentUsedAbility += UpdateGameplayMenu;
+        //_localPlayer.opponentBuyAbility += UpdateGameplayMenu;
         _localPlayer.playerBuyAbility += UpdateGameplayMenu;
-        UpdateGameplayMenu();
 
+        _localPlayer.moneyUpdate += (money, opponentMoney) => { _playerMoney.text = money.ToString();  };
     }
 
     private IEnumerator DynamicShowAbilityDescription(string abilityDescription)
@@ -73,6 +75,7 @@ public class GameplayMenu : MonoBehaviour, IInitializable
             _abilitySlots[index].SetActive(false);
             ++index;
         }
+        //_playerMoney.text = _localPlayer.Money.ToString();
     }
 
     public void Update()

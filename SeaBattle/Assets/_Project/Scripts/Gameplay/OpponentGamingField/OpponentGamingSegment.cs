@@ -77,26 +77,20 @@ public class OpponentGamingSegment : MonoBehaviour, IPointerDownHandler, IPointe
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        //if (!IsInteractable) return;
-        //if (!IsInitialized) return;
+        if (!IsInteractable) return;
+        if (!IsInitialized) return;
         onDown?.Invoke();
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        //if (!IsInteractable) return;
-        //if (!IsInitialized) return;
         onUp?.Invoke();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //if (!IsInteractable) return;
-        //if (!IsInitialized) return;
         onEnter?.Invoke();
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        //if (!IsInteractable) return;
-        //if (!IsInitialized) return;
         onExit?.Invoke();
     }
 

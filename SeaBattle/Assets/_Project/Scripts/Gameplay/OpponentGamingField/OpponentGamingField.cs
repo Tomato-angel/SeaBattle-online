@@ -79,7 +79,7 @@ public class OpponentGamingField : MonoBehaviour, IInitializable
                     AllSegmentsInteractNormalize();
                 });
 
-                yield return new WaitForSeconds(0.1f);
+                //yield return new WaitForSeconds(0.1f);
             }
         }
         SetActive(true);
@@ -143,6 +143,7 @@ public class OpponentGamingField : MonoBehaviour, IInitializable
     {
         if (!_isActive) return;
         if (_currentAbility == null) return;
+        if (_currentAbility.TargetCoordinates.Count == 0) return;
         //if (!opponentGamingSegment.IsInteractable) return;
 
         foreach (var coordinate in _targetAbilityCoordinates)
@@ -239,7 +240,7 @@ public class OpponentGamingField : MonoBehaviour, IInitializable
 
         _localPlayer.setCurrentAbility += SetCurrentAbility;
 
-
+        _localPlayer.moneyUpdate += (playerMoney, opponentMoney) => { _opponentMoney.text = opponentMoney.ToString(); };
 
         Player opponentPlayer = _localPlayer.GetAnotherPlayerFromLocalScene();
         SetOpponentPlayer(opponentPlayer);
@@ -249,9 +250,11 @@ public class OpponentGamingField : MonoBehaviour, IInitializable
 
         
         _lockPanel.SetActive(!_localPlayer.isHost);
-        _localPlayer.opponentUsedAbility += () => {_lockPanel.SetActive(false); };
-        _localPlayer.playerUsedAbility += () => { _lockPanel.SetActive(true); };
-        
+        // _localPlayer.opponentUsedAbility += LockGameplay;
+        // _localPlayer.playerUsedAbility += LockGameplay;
+        _localPlayer.opponentUsedAbility += () => _lockPanel.SetActive(false);
+         _localPlayer.playerUsedAbility += () => _lockPanel.SetActive(true);
+
         _localPlayer.allOpponentShipsAreDeployed += GenerateGridAfterOpponentReady;
         _localPlayer.allOpponentShipsAreDeployed += () => _waitingPanel.SetActive(false);
 
@@ -260,6 +263,11 @@ public class OpponentGamingField : MonoBehaviour, IInitializable
             GenerateGridAfterOpponentReady();
             _waitingPanel.SetActive(false);
         }
+    }
+
+    public void LockGameplay()
+    {
+        //_lockPanel.SetActive(!_localPlayer._isPlayerTurn);
     }
 
     private void Start()

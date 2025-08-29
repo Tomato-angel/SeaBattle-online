@@ -206,28 +206,55 @@ public class Player : NetworkBehaviour, IInitializable
     }
     */
 
+    [Server]
+    public void ForceLeaveGame()
+    {
+        if (_currentMatch == null) return;
+        Player[] players = _currentMatch.GetPlayers();
+        foreach(var player in players)
+        {
+            ProjectManager.root.ProjectServices
+            .Resolve<MatchMaker>()
+            .LeaveMatch(player, _currentMatch.Key, (isLeaveGameSuccessfully) =>
+            {
+                player.TargetNotifyAboutDisconnectionAsync(this);
+                player.isHost = false;
+                player.TargetNotifyPlayerAboutLeaveGameAsync();
+                //player.TargetSetCurrentMatchAsync(_currentMatch);
+            });
+        }
+        
+    }
+
     [Command] 
     public void CmdLeaveGame()
     {
         if (_currentMatch == null) return;
+        //ForceLeaveGame();
+        
         Player[] players = _currentMatch.GetPlayers();
-
         ProjectManager.root.ProjectServices
             .Resolve<MatchMaker>()
             .LeaveMatch(this, _currentMatch.Key, (isLeaveGameSuccessfully) =>
             {
+                
+                
                 foreach (Player player in players)
                 {
                     player.TargetNotifyAboutDisconnectionAsync(this);
+                    player.CmdLeaveGame();
                     if(isHost)
                     {
-                        player.TargetForcePlayerLeaveGameAsync();
+                        //player.TargetForcePlayerLeaveGameAsync();
                     }
                 }
+                
                 isHost = false;
                 TargetNotifyPlayerAboutLeaveGameAsync();
 
                 TargetSetCurrentMatchAsync(_currentMatch);
+                
+
             });
     }
     [TargetRpc]
@@ -243,6 +270,7 @@ public class Player : NetworkBehaviour, IInitializable
         await Task.Delay((int)PingServer());
         Debug.Log("[Client] This player leave the game");
         leaveGame?.Invoke();
+        EventBus.OnRequestForOpenMainMenu();
     }
     /*
     // Уведомляет игрока, который отключался от матча о результате его запроса на отключение от игры
@@ -470,6 +498,7 @@ public class Player : NetworkBehaviour, IInitializable
         SimpleShoot simpleShoot = new SimpleShoot();
         _currentAbility = simpleShoot;
         abilities.Add(simpleShoot);
+        _isPlayerTurn = isHost;
 
         /*
         TargetNotifyAboutPlayerBuyAbility();
@@ -516,6 +545,20 @@ public class Player : NetworkBehaviour, IInitializable
 
     public Dictionary<int, ShipGameplayData> _shipsDatabase;
     [Server]
+    public bool IsAllShipsDestroyed()
+    {
+        bool result = true;
+        foreach(var ship in _shipsDatabase)
+        {
+            if(ship.Value.Health > 0)
+            {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+    [Server]
     public void GenerateShipsDatabaseByTiles(List<TileGameplayData> tilesGameplayData)
     {
         _shipsDatabase = new Dictionary<int, ShipGameplayData>();
@@ -540,21 +583,12 @@ public class Player : NetworkBehaviour, IInitializable
     public event Action<List<TileGameplayData>> getAttackFromOpponent;
     //
     [Server]
-    public void CmdAttackOpponent(Coordinates[] targetCoordinates)
+    public bool CmdAttackOpponent(Coordinates[] targetCoordinates)
     {
+        bool isDamagedOpponent = false;
         Debug.Log($"[Player] {connectionToClient.connectionId} attack his opponent on coordinates {targetCoordinates.ToString()}");
         _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
         HashSet<TileGameplayData> responseTileGameplayData = new();
-
-        string s = "";
-        foreach (var element in targetCoordinates)
-        {
-            s += element.x + " " + element.z + "\n";
-        }
-        Debug.Log(s);
-
-        AddMoney(10);
-
         /*
         foreach (var targetCoordinate in targetCoordinates)
         {
@@ -607,21 +641,24 @@ public class Player : NetworkBehaviour, IInitializable
 
                     if(tileGameplayData.status == TileGameplayStatus.shipCell)
                     {
+                        opponentPlayer._shipsDatabase[tileGameplayData.PlacedObjectID].Health -= 1;
+                        isDamagedOpponent = true;
                         AddMoney(10);
                     }
                 }
             }
         }
 
-        s = "";
-        foreach(var element in responseTileGameplayData)
-        {
-            s += element.Coordinate.x + " " + element.Coordinate.z + "\n";
-        }
-        Debug.Log(s);
-
         TargetNotifyAboutOpponentGetAttack(responseTileGameplayData.ToList());
         opponentPlayer.TargetNotifyAboutOpponentAttack(responseTileGameplayData.ToList());
+
+        if(opponentPlayer.IsAllShipsDestroyed())
+        {
+            TargetNotifyAboutWin();
+            opponentPlayer.TargetNotifyAboutLose();
+        }
+
+        return isDamagedOpponent;
     }
     [TargetRpc]
     public void TargetNotifyAboutOpponentGetAttack(List<TileGameplayData> tilesGameplayData)
@@ -633,7 +670,6 @@ public class Player : NetworkBehaviour, IInitializable
     {
         getAttackFromOpponent?.Invoke(tilesGameplayData);
     }
-
 
     public event Action<List<TileGameplayData>> scanOpponent;
     public event Action<List<TileGameplayData>> getScanFromOpponent;
@@ -727,6 +763,7 @@ public class Player : NetworkBehaviour, IInitializable
     public Ability CurrentAbility => _currentAbility;
     public List<Ability> abilities = new();
     private int _maxAbilityCount = 4;
+    [SyncVar]
     public bool _isPlayerTurn;
     public bool IsPlayerTurn => _isPlayerTurn;
     
@@ -760,17 +797,15 @@ public class Player : NetworkBehaviour, IInitializable
     [TargetRpc]
     public void TargetNotifyAboutPlayerUsedAbility()
     {
-        playerUsedAbility?.Invoke();
-        _isPlayerTurn = false;
+        playerUsedAbility?.Invoke();  
     }
     [TargetRpc]
     public void TargetNotifyAboutOpponentUsedAbility() 
     {
-        opponentUsedAbility?.Invoke();
-        _isPlayerTurn = true;
+        opponentUsedAbility?.Invoke(); 
     }
 
-
+    /*
     [Command]
     public void CmdUseAbility(Ability ability, Coordinates origin)
     {
@@ -828,7 +863,7 @@ public class Player : NetworkBehaviour, IInitializable
         TargetForceSetPlayerAbilities(abilities);
         TargetForceSetOpponentAbilities(opponentPlayer.abilities);
 
-    }
+    }*/
 
     [Command]
     public void CmdUseAbility(Ability ability, List<Coordinates> targetCoordinates)
@@ -849,11 +884,12 @@ public class Player : NetworkBehaviour, IInitializable
             }
         }
 
+        bool tmpIsDamagedOponent = false;
         switch (ability.Type)
         {
             case AbilityTypes.Attack:
                 {
-                    CmdAttackOpponent(targetCoordinates.ToArray());
+                    tmpIsDamagedOponent = CmdAttackOpponent(targetCoordinates.ToArray());
                     break;
                 }
             case AbilityTypes.Scan:
@@ -870,15 +906,28 @@ public class Player : NetworkBehaviour, IInitializable
         _currentAbility = null;
 
         _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
-        
+        Debug.Log($"[Player] ConnID={connectionToClient} player used ability with ID:{ability.ID} with damage: {tmpIsDamagedOponent}");
+        if (ability.ID == 0 && tmpIsDamagedOponent)
+        {
+            _isPlayerTurn = true;
+            opponentPlayer._isPlayerTurn = false;
+        }
+        else
+        {
+            _isPlayerTurn = false;
+            opponentPlayer._isPlayerTurn = true;
+        }
+
         opponentPlayer.TargetForceSetPlayerAbilities(opponentPlayer.abilities);
         opponentPlayer.TargetForceSetOpponentAbilities(abilities);
         opponentPlayer.TargetNotifyAboutOpponentUsedAbility();
 
-        
         TargetForceSetPlayerAbilities(abilities);
         TargetForceSetOpponentAbilities(opponentPlayer.abilities);
         TargetNotifyAboutPlayerUsedAbility();
+
+        
+
     }
 
     #endregion
@@ -890,17 +939,28 @@ public class Player : NetworkBehaviour, IInitializable
     [SyncVar]
     public int money = 0;
     public int Money => money;
+    public event Action<int, int> moneyUpdate;
+    [TargetRpc]
+    public void TargetNotifyAbouyMoneyUpdate(int money, int opponentMoney)
+    {
+        moneyUpdate?.Invoke(money, opponentMoney);
+    }
+    
     [Server]
     public void AddMoney(int value)
     {
         money += value;
         if (money > 100) money = 100;
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        TargetNotifyAbouyMoneyUpdate(Money, opponentPlayer.Money);
     }
     [Server]
     public void SubstractMoney(int value)
     {
         money -= value;
         if (money < 0) money = 0;
+        _currentMatch.GetAnotherPlayer(this, out Player opponentPlayer);
+        TargetNotifyAbouyMoneyUpdate(Money, opponentPlayer.Money);
     }
 
     private Ability[] _abilitiesInShop = new Ability[]
@@ -981,10 +1041,12 @@ public class Player : NetworkBehaviour, IInitializable
         opponentPlayer.TargetForceSetOpponentAbilities(abilities);
         opponentPlayer.TargetNotifyAboutOpponentBuyAbility();
 
-        
+
+
         TargetForceSetPlayerAbilities(abilities);
         TargetForceSetOpponentAbilities(opponentPlayer.abilities);
         TargetNotifyAboutPlayerBuyAbility();
+
     }
     #endregion
 

@@ -230,6 +230,8 @@ namespace Scripts.Matchmaking
                     
 
                     player.CurrentMatch = null;
+                    player.CurrentMatch = new Match("NOMATCHPLAYER", false);
+                    player.NetworkMatch.matchId = new Guid();
                     player.NetworkMatch.matchId = Guid.NewGuid();
 
                     Debug.Log($"\t-- Player: {player.connectionToClient.connectionId} was disconnected from match with key: {key}");

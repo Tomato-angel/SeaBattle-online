@@ -17,6 +17,10 @@ public class MainMenu : MonoBehaviour, IInitializable
     [SerializeField] GameObject _winMenu;
     [SerializeField] GameObject _loseMenu;
 
+    public void LeaveGameplay()
+    {
+        _localPlayer.CmdLeaveGame();
+    }
 
 
     public void HideAllMenu()

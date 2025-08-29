@@ -26,7 +26,7 @@ namespace DI
         }
         public void RegisterSingleton<T>(string tag, Func<DIContainer, T> factory)
         {
-            var key = (tag, typeof(T));
+            var key = (tag, typeof(T))
             Register(key, factory, true);
         }
         
